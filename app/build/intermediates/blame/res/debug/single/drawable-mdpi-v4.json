@@ -16,40 +16,40 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_focused_holo.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
-    },
-    {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_pause_circle_filled_grey600_36.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_pause_circle_filled_grey600_36.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_pause_circle_filled_grey600_36.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_pause_circle_filled_grey600_36.png"
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_light_disabled.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_disabled.9.png"
     },
     {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_skip_previous_white_24.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_skip_previous_white_24.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_replay_white_24.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_replay_white_24.png"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_play_circle_filled_white_36.png",
@@ -68,12 +68,12 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_volume_off_white_36.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_cast_dark.png",
@@ -100,10 +100,6 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_replay_10_white_24.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_replay_10_white_24.png"
     },
@@ -120,12 +116,12 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\10.0.0\\res\\drawable-mdpi-v4\\cast_ic_notification_on.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cast_abc_scrubber_control_to_pressed_mtrl_000.png",
@@ -172,10 +168,6 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_stop_grey600_36.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
@@ -202,10 +194,6 @@
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cast_ic_stop_circle_filled_white.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\cast_ic_stop_circle_filled_white.png"
-    },
-    {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_replay_30_white_24.png",
@@ -258,10 +246,6 @@
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_speaker_group_light.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-mdpi-v4\\ic_speaker_group_light.png"
-    },
-    {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\googleg_standard_color_18.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
@@ -348,10 +332,6 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },
@@ -372,12 +352,12 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\powered_by_google_light.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\10.0.0\\res\\drawable-mdpi-v4\\powered_by_google_light.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\powered_by_google_light.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\10.0.0\\res\\drawable-mdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
@@ -436,16 +416,16 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
+    },
+    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_skip_previous_grey600_36.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_skip_previous_grey600_36.png"
-    },
-    {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
@@ -476,12 +456,12 @@
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-mdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_play_arrow_grey600_36.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_play_arrow_grey600_36.png"
-    },
-    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_play_arrow_grey600_36.png",
+        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_play_arrow_grey600_36.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_skip_next_grey600_36.png",
@@ -578,10 +558,6 @@
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_stop_white_24.png",
         "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.0\\res\\drawable-mdpi-v4\\quantum_ic_stop_white_24.png"
-    },
-    {
-        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\googleg_disabled_color_18.png",
-        "source": "D:\\workspace\\Runner\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.2.0\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png",

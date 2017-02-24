@@ -5,33 +5,52 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="16977473697237"
+    timestamp="8507004271157"
     token="-1875295342825606788"
-    verifier="MANIFEST_FILE_CHANGE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="261" />
+        duration="383" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="50" />
+        duration="49" />
     <task
         name="verifier"
-        duration="8" />
+        duration="4" />
 
     <artifact
-        location="D:\workspace\Runner\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="D:\workspace\Runner\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="D:\workspace\Runner\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+        type="DEX" />
+    <artifact
+        location="D:\workspace\Runner\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="16977473697237"
-        verifier="MANIFEST_FILE_CHANGE" >
+        timestamp="7839111504848"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\workspace\Runner\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="8507004271157"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\workspace\Runner\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="D:\workspace\Runner\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+        <artifact
+            location="D:\workspace\Runner\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

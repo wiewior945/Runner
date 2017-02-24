@@ -14,9 +14,11 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/buttosn"
-            android:text="haso"
-            android:background="@drawable/open_menu_icon"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/openMenuButtosn"
+            android:background="@drawable/open_menu_icon"
+            android:onClick="openMenu" />
     </fragment>
     <LinearLayout android:id="@+id/leftMenuLayout"
         android:layout_width="200dp"

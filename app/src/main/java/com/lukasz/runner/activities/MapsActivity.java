@@ -2,6 +2,9 @@ package com.lukasz.runner.activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,11 +17,15 @@ import com.lukasz.runner.R;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private DrawerLayout drawerMenu;
+    private LinearLayout menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        drawerMenu = (DrawerLayout)findViewById(R.id.drawer_layout);
+        menu = (LinearLayout) findViewById(R.id.leftMenuLayout);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
     }
@@ -41,5 +48,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng warsaw = new LatLng(52, 21);
         mMap.addMarker(new MarkerOptions().position(warsaw).title("Marker in Warsaw"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(warsaw));
+    }
+
+    public void openMenu(View view){
+        drawerMenu.openDrawer(menu);
     }
 }

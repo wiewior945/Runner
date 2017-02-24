@@ -1084,7 +1084,6 @@ int id button_1 0x7f0e00b9
 int id button_2 0x7f0e00bb
 int id button_3 0x7f0e00bc
 int id button_play_pause_toggle 0x7f0e00ba
-int id buttosn 0x7f0e00a3
 int id buyButton 0x7f0e005b
 int id buy_now 0x7f0e005f
 int id buy_with 0x7f0e0060
@@ -1208,6 +1207,7 @@ int id notification_main_column 0x7f0e00ed
 int id notification_main_column_container 0x7f0e00ec
 int id omnibox_title_section 0x7f0e004d
 int id omnibox_url_section 0x7f0e004e
+int id openMenuButtosn 0x7f0e00a3
 int id parentPanel 0x7f0e007b
 int id place_autocomplete_clear_button 0x7f0e00fb
 int id place_autocomplete_powered_by_google 0x7f0e00fd

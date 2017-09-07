@@ -24,7 +24,8 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#E67E22">
+        android:background="#E67E22"
+        android:orientation="vertical">
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -36,5 +37,41 @@
             android:textAlignment="viewStart"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="start"
+            android:id="@+id/button1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:onClick="startTracking"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="stop"
+            android:id="@+id/button2"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:onClick="stopTracing"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="poka sowe"
+            android:id="@+id/button3"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:onClick="displayData"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

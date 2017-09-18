@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed">
+
+    <EditText
+        android:id="@+id/registerLoginInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/username2"
+        android:inputType="textPersonName"
+        android:backgroundTint="#E67E22"
+        android:textColorHint="#ffb472"
+        android:textColor="#E67E22" />
+
+    <EditText
+        android:id="@+id/registerPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/registerLoginInput"
+        android:layout_below="@+id/registerLoginInput"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#E67E22"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="#E67E22"
+        android:textColorHint="#ffb472" />
+
+    <EditText
+        android:id="@+id/registerRepeatPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/registerPasswordInput"
+        android:layout_below="@+id/registerPasswordInput"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#E67E22"
+        android:ems="10"
+        android:hint="@string/repeat_password"
+        android:inputType="textPassword"
+        android:textColor="#E67E22"
+        android:textColorHint="#ffb472" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerRepeatPasswordInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#E67E22"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:onClick="register"/>
+</RelativeLayout>

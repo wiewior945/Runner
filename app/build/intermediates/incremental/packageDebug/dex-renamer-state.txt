@@ -1,4 +1,4 @@
-#Thu Sep 07 21:06:56 CEST 2017
+#Mon Sep 18 23:39:26 CEST 2017
 base.0=D\:\\workspace\\Runner\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5ead2843d984a65375c503e88158d82be094ecab
 renamed.1=classes.dex
 renamed.0=classes2.dex

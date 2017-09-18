@@ -1,4 +1,16 @@
 <resources>
+    <string name="server">http://192.168.8.100:8080</string>
     <string name="app_name">Runner</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="ws_login">/Runner/webservice/login</string>
+    <string name="ws_register">/Runner/webservice/register</string>
+
+    <string name="username">Login</string>
+    <string name="username2">Nazwa użytkownika</string>
+    <string name="login">Zaloguj</string>
+    <string name="password">Hasło</string>
+    <string name="register">Zarejestruj</string>
+    <string name="repeat_password">Powtórz hasło</string>
+    <string name="create_new_account">Nie masz konta? Załóż je!</string>
 </resources>

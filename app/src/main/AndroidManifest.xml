@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MapsActivity"/>
+        <activity android:name=".activities.RegisterActivity"/>
         <service android:name=".services.GpsService"/>
     </application>
 

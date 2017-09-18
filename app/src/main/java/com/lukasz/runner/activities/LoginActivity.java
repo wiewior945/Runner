@@ -12,12 +12,11 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.lukasz.runner.R;
+import com.lukasz.runner.Utilities;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.User;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.ExecutionException;
@@ -31,8 +30,7 @@ import java.util.concurrent.TimeoutException;
 public class LoginActivity extends Activity {
 
     private EditText loginEditText, passwordEditText;
-    private final String SERVER = "http://192.168.8.100:8080/"; //pamiętać o http i porcie
-    private final String WEB_SERVICE = "Runner/webservice/login";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +47,7 @@ public class LoginActivity extends Activity {
         Timeout jest ustawiony na 5 sekund, jeśli po tym czsie serwer nie odpowie wyświetlany jest komunikat.
      */
     public void login(View view){
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.INTERNET)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 123);
-        }
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_NETWORK_STATE}, 124);
-        }
-
+        Utilities.checkInternetPermissions(this);
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null){
             try {
@@ -81,15 +73,19 @@ public class LoginActivity extends Activity {
         else{
             InfoDialog.showDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
         }
-
     }
 
+
+    public void goToRegisterWindow(View view){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
     private class CheckUser extends AsyncTask<String, Void, User>{
 
         @Override
         protected User doInBackground(String... params) {
-            String url = SERVER+WEB_SERVICE+"?name="+params[0]+"&password="+params[1];
+            String url = getString(R.string.server)+getString(R.string.ws_login)+"?name="+params[0]+"&password="+params[1];
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
             User user = restTemplate.getForObject(url, User.class);

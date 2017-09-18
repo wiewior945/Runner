@@ -39,16 +39,16 @@ public final class R {
         public static final int zOrderOnTop = 0x7f0100bd;
     }
     public static final class color {
-        public static final int common_google_signin_btn_text_dark = 0x7f0a005b;
-        public static final int common_google_signin_btn_text_dark_default = 0x7f0a0016;
-        public static final int common_google_signin_btn_text_dark_disabled = 0x7f0a0017;
-        public static final int common_google_signin_btn_text_dark_focused = 0x7f0a0018;
-        public static final int common_google_signin_btn_text_dark_pressed = 0x7f0a0019;
-        public static final int common_google_signin_btn_text_light = 0x7f0a005c;
-        public static final int common_google_signin_btn_text_light_default = 0x7f0a001a;
-        public static final int common_google_signin_btn_text_light_disabled = 0x7f0a001b;
-        public static final int common_google_signin_btn_text_light_focused = 0x7f0a001c;
-        public static final int common_google_signin_btn_text_light_pressed = 0x7f0a001d;
+        public static final int common_google_signin_btn_text_dark = 0x7f0a005e;
+        public static final int common_google_signin_btn_text_dark_default = 0x7f0a0017;
+        public static final int common_google_signin_btn_text_dark_disabled = 0x7f0a0018;
+        public static final int common_google_signin_btn_text_dark_focused = 0x7f0a0019;
+        public static final int common_google_signin_btn_text_dark_pressed = 0x7f0a001a;
+        public static final int common_google_signin_btn_text_light = 0x7f0a005f;
+        public static final int common_google_signin_btn_text_light_default = 0x7f0a001b;
+        public static final int common_google_signin_btn_text_light_disabled = 0x7f0a001c;
+        public static final int common_google_signin_btn_text_light_focused = 0x7f0a001d;
+        public static final int common_google_signin_btn_text_light_pressed = 0x7f0a001e;
     }
     public static final class drawable {
         public static final int common_full_open_on_phone = 0x7f020053;

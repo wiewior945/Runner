@@ -91,7 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void displayData(View view){
         SharedPreferences sharedPref = getSharedPreferences("coords", MODE_PRIVATE);
-        System.out.println(sharedPref.getString("data", "@@@ i w pizdu poszedl sie jebac"));
+       // System.out.println(sharedPref.getString("data", "@@@ i w pizdu poszedl sie jebac"));
     }
 
     public void settext(String text){

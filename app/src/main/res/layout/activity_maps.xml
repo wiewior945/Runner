@@ -29,7 +29,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Gówno 1"
+            android:text="opcja 1"
             android:id="@+id/button"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
@@ -64,7 +64,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="poka sowe"
+            android:text="opcja"
             android:id="@+id/button3"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"

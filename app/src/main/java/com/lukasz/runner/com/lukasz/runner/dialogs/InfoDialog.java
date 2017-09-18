@@ -16,6 +16,7 @@ import com.lukasz.runner.R;
 public class InfoDialog {
 
 
+    //standartowy dialog, po kliknięciu "ok" zamyka dialog
     public static void showDialog(Activity activity, String message){
         final Dialog dialog = new Dialog(activity);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
@@ -30,5 +31,30 @@ public class InfoDialog {
             }
         });
         dialog.show();
+    }
+
+    /*
+        dzięki tej metodzie można obsłużyć przycisk "ok" w osobnej klasie, wystarczy zaimplementować interfej OnClick i go tutaj podać
+        -----------  PAMIĘTAC ŻEBY ZAMKNĄĆ ZWRÓCONY DIALOG!!!!!  -----------------
+     */
+    public static Dialog showDialog(Activity activity, String message, View.OnClickListener listener){
+        final Dialog dialog = new Dialog(activity);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_layout);
+        TextView messageTextView = (TextView) dialog.findViewById(R.id.dialogTextView);
+        messageTextView.setText(message);
+        Button dismissButton = (Button) dialog.findViewById(R.id.dialogButton);
+        if(listener !=null){
+            dismissButton.setOnClickListener(listener);
+        }
+        else{
+            dismissButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }});
+        }
+        dialog.show();
+        return dialog;
     }
 }

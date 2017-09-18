@@ -49,6 +49,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.lukasz.runner.activities.MapsActivity" />
+        <activity android:name="com.lukasz.runner.activities.RegisterActivity" />
 
         <service android:name="com.lukasz.runner.services.GpsService" />
 

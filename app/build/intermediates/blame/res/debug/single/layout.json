@@ -28,6 +28,10 @@
         "source": "C:\\Users\\Lukasz\\.android\\build-cache\\a4662574ee8b1b8674a623502041f2af130b2f71\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_without_button_layout.xml",
+        "source": "D:\\workspace\\Runner\\app\\src\\main\\res\\layout\\dialog_without_button_layout.xml"
+    },
+    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Lukasz\\.android\\build-cache\\a4662574ee8b1b8674a623502041f2af130b2f71\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\Lukasz\\.android\\build-cache\\a4662574ee8b1b8674a623502041f2af130b2f71\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_with_cancel_button_layout.xml",
+        "source": "D:\\workspace\\Runner\\app\\src\\main\\res\\layout\\dialog_with_cancel_button_layout.xml"
     },
     {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",

@@ -1,13 +1,10 @@
 package com.lukasz.runner.activities;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.EditText;
 
@@ -47,32 +44,36 @@ public class LoginActivity extends Activity {
         Timeout jest ustawiony na 5 sekund, jeśli po tym czsie serwer nie odpowie wyświetlany jest komunikat.
      */
     public void login(View view){
-        Utilities.checkInternetPermissions(this);
+        Utilities.requestInternetPermissions(this);
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null){
-            try {
-                String login = loginEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-                CheckUser asyncTask = new CheckUser();
-                asyncTask.execute(login, password);
-                User user = asyncTask.get(5, TimeUnit.SECONDS);
-                if(user!=null){
-                    Intent intent = new Intent(this, MapsActivity.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                }
-                else InfoDialog.showDialog(this, "Podano błędny login lub hasło. Spróbuj ponownie."); //serwer zwrócił pusty wynik = błędny login/hasło
-            } catch (InterruptedException  | ExecutionException e) {
-                InfoDialog.showDialog(this, "błąd w metodzie obsługującej przycisk");
-                e.printStackTrace();
-            } catch (TimeoutException e) {
-                InfoDialog.showDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
-                e.printStackTrace();
-            }
-        }
-        else{
-            InfoDialog.showDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
-        }
+
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+
+//        if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null){
+//            try {
+//                String login = loginEditText.getText().toString();
+//                String password = passwordEditText.getText().toString();
+//                CheckUser asyncTask = new CheckUser();
+//                asyncTask.execute(login, password);
+//                User user = asyncTask.get(5, TimeUnit.SECONDS);
+//                if(user!=null){
+//                    Intent intent = new Intent(this, MapsActivity.class);
+//                    intent.putExtra("user", user);
+//                    startActivity(intent);
+//                }
+//                else InfoDialog.showOkDialog(this, "Podano błędny login lub hasło. Spróbuj ponownie."); //serwer zwrócił pusty wynik = błędny login/hasło
+//            } catch (InterruptedException  | ExecutionException e) {
+//                InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
+//                e.printStackTrace();
+//            } catch (TimeoutException e) {
+//                InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
+//                e.printStackTrace();
+//            }
+//        }
+//        else{
+//            InfoDialog.showOkDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
+//        }
     }
 
 

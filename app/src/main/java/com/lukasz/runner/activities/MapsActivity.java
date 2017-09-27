@@ -1,103 +1,82 @@
 package com.lukasz.runner.activities;
 
-import android.Manifest;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.location.Location;
+import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.INotificationSideChannel;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.lukasz.runner.R;
+import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.User;
 import com.lukasz.runner.services.GpsService;
 import com.lukasz.runner.services.GpsService.CreateBinder;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
-    private GoogleMap mMap;
+    private GoogleMap map;
     private DrawerLayout drawerMenu;
     private LinearLayout menu;
-    private Button button;
+    private Button newTrackButton, cancelTrackButton, endTruckTextButton;
+    private ImageView endTrackButton, centerMapButton;
+    private TextView timerTextView;
     private GpsService gpsService;
     private User user;
+    private Handler handler = new Handler();
+    private boolean trackingFlag=true;  //czy mapa ma podążać za znacznikiem (obecnym  miejscem)
+    private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        drawerMenu = (DrawerLayout) findViewById(R.id.drawer_layout);
-        menu = (LinearLayout) findViewById(R.id.leftMenuLayout);
-        button = (Button) findViewById(R.id.button);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
+        drawerMenu=(DrawerLayout) findViewById(R.id.drawer_layout);
+        menu=(LinearLayout) findViewById(R.id.leftMenuLayout);
+        newTrackButton=(Button) findViewById(R.id.newTrackButton);
+        cancelTrackButton=(Button) findViewById(R.id.cancelTrackingButton);
+        endTruckTextButton=(Button)findViewById(R.id.endTrackingTextButton);
+        endTrackButton=(ImageView) findViewById(R.id.endTrackingButton);
+        timerTextView=(TextView) findViewById(R.id.timerTextView);
+        centerMapButton=(ImageView) findViewById(R.id.gpsCenterButtosn);
+        SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
         Intent intent = new Intent(this, GpsService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
-        Bundle data = getIntent().getExtras();
-        user = data.getParcelable("user");
+//        Bundle data = getIntent().getExtras();
+//        user = data.getParcelable("user");
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        LatLng warsaw = new LatLng(52, 21);
-        mMap.addMarker(new MarkerOptions().position(warsaw).title("Marker in Warsaw"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(warsaw));
+        LatLng warsaw = new LatLng(52.23, 21.006);
+        map = googleMap;
+        map.setMyLocationEnabled(true);
+        map.getUiSettings().setCompassEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk do namierzania obecnej lokalizacji
+        map.animateCamera(CameraUpdateFactory.newLatLng(warsaw));
+        map.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
-
-    //otweira bozne menu i przypisuje activity w service
-    public void openMenu(View view) {
-        gpsService.setActivity(this);
-        drawerMenu.openDrawer(menu);
-    }
-
-    //metoda do przycisku "start" z bocznego menu, uruchamia nasłuchiwanie zmian pozycji
-    public void startTracking(View view){
-        gpsService.startLocationUpdates();
-    }
-
-    //metoda do przycisku "stop", zatrzymuje nasłuciwanie pozycji, zamyka menu
-    public void stopTracing(View view){
-        gpsService.stopLocation();
-        drawerMenu.closeDrawer(menu);
-    }
-
-    public void displayData(View view){
-        SharedPreferences sharedPref = getSharedPreferences("coords", MODE_PRIVATE);
-       // System.out.println(sharedPref.getString("data", "@@@ i w pizdu poszedl sie jebac"));
-    }
-
-    public void settext(String text){
-        button.setText(text);
-    }
-
 
 
     //metoda potrzebna do zbindowania service, pobiera instancje serwisu
@@ -107,10 +86,139 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onServiceConnected(ComponentName className, IBinder service) {
             GpsService.CreateBinder binder = (CreateBinder) service;
             gpsService = binder.getService();
+            gpsService.setActivity(getActiviy());
+            gpsService.startLocationListening();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
         }
     };
+
+
+    //=========================================  PRZYCISKI  =========================================================
+
+    //otweira boczne menu i przypisuje activity w service
+    public void openMenu(View view) {
+        drawerMenu.openDrawer(menu);
+    }
+
+    //metoda do przycisku "nowa trasa"
+    public void newTrack(View view){
+        drawerMenu.closeDrawer(Gravity.LEFT);
+        newTrackButton.setEnabled(false);
+        newTrackButton.setTextColor(ContextCompat.getColor(this, R.color.grey));
+        cancelTrackButton.setVisibility(View.VISIBLE);
+        endTruckTextButton.setVisibility(View.VISIBLE);
+        endTrackButton.setVisibility(View.VISIBLE);
+        timerTextView.setVisibility(View.VISIBLE);
+        handler.post(new CountDown());
+        //TODO: zapisywanie trasy
+    }
+
+    //metoda do przycisku "stop", zatrzymuje nasłuciwanie pozycji, zamyka menu
+    public void stopTracking(View view){
+        //TODO: zapisanie trasy
+    }
+
+    public void cancelTracing(View view){
+        //dialog  z zapytaniem o anulowanie
+        //TODO: anulowanie nagrywania trasy
+    }
+
+    //zmienia flagę czy mapa powinna podążać za znacznikiem, urachmia ListenerLocation jeśli jeszcze nie jest uruchomiony, zmienie kolor przycisku
+    public void trackingButton(View view){
+        if(gpsFlag){
+            trackingFlag=!trackingFlag;
+            if(trackingFlag)centerMapButton.setBackground(ContextCompat.getDrawable(this, R.drawable.gps_icon));
+            else centerMapButton.setBackground(ContextCompat.getDrawable(this, R.drawable.grey_gps_icon));
+        }
+        if(!gpsFlag){
+            gpsService.startLocationListening();
+        }
+    }
+    //==================================================================================================================
+
+
+    /*
+        Metoda do obsługi systemowego dialogu aktywującego GPS. If to wciśnięcie przycisku ok, else - anuluj.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == GpsService.GPS_ENABLE_DIALOG_REQUESTCODE){
+            if(resultCode == RESULT_OK){
+                gpsService.startLocationListening();
+            }
+            else{
+                InfoDialog.showOkDialog(this, "Bez aktywnego GPS aplikacja nie będzie działać poprawnie.");
+            }
+        }
+    }
+
+    //wywoływana w LocationListener, w zależności od flagi mapa jest centrowana na znaczniku usera lub nie
+    public void centerMap(double latitude, double longtitude){
+        if(trackingFlag){
+            LatLng coords = new LatLng(latitude, longtitude);
+            CameraUpdate updatedLocation = CameraUpdateFactory.newLatLng(coords);
+            map.animateCamera(updatedLocation);
+        }
+
+    }
+
+    //=============================================  TIMERY  ===========================================================
+    private class CountDown implements Runnable{
+        private int step=3;
+        private Dialog dialog;
+        @Override
+        public void run() {
+            if(dialog!=null){
+                dialog.dismiss();
+            }
+            switch (step){
+                case 3:
+                    dialog = InfoDialog.showNoButtonDialog(getActiviy(), "Gotowy?");
+                    break;
+                case 2:
+                    dialog = InfoDialog.showNoButtonDialog(getActiviy(), "Do startu!");
+                    break;
+                case 1:
+                    dialog = InfoDialog.showNoButtonDialog(getActiviy(), "Start!");
+                    break;
+            }
+            if(step>=0){
+                handler.postDelayed(this, 1000);
+                step--;
+            }
+            else handler.post(new TrackTimer());
+        }
+    }
+
+    private class TrackTimer implements Runnable{
+        private int minutes=0;
+        private int seconds=0;
+
+        @Override
+        public void run() {
+            seconds++;
+            if(seconds==60){
+                minutes++;
+                seconds=0;
+            }
+            String time = String.format("%02d:%02d",minutes,seconds);
+            timerTextView.setText(time);
+            handler.postDelayed(this, 1000);
+        }
+    }
+    //==================================================================================================================
+
+
+    public void setGpsFlag(boolean b){
+        gpsFlag = b;
+    }
+    public boolean getGpsFlag(){
+        return gpsFlag;
+    }
+    private MapsActivity getActiviy(){
+        return this;
+    }
 }

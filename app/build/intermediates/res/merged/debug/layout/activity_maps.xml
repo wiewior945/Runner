@@ -11,14 +11,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.lukasz.map.MapsActivity">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="top|right"
+            android:id="@+id/timerTextView"
+            android:background="@drawable/dialog_background"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:text="00:00"
+            android:visibility="gone"/>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="bottom|right"
             android:id="@+id/openMenuButtosn"
             android:background="@drawable/open_menu_icon"
             android:onClick="openMenu" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="60dp"
+            android:layout_gravity="bottom|right"
+            android:id="@+id/gpsCenterButtosn"
+            android:background="@drawable/gps_icon"
+            android:onClick="trackingButton"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="110dp"
+            android:layout_gravity="bottom|right"
+            android:id="@+id/endTrackingButton"
+            android:background="@drawable/stop_tracking_icon"
+            android:onClick="stopTracking"
+            android:visibility="gone"/>
     </fragment>
     <LinearLayout android:id="@+id/leftMenuLayout"
         android:layout_width="200dp"
@@ -29,7 +63,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="opcja 1"
+            android:text="Dla usera"
             android:id="@+id/button"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
@@ -37,41 +71,56 @@
             android:textAlignment="viewStart"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/white" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="start"
-            android:id="@+id/button1"
+            android:text="@string/new_track"
+            android:id="@+id/newTrackButton"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:onClick="startTracking"/>
+            android:onClick="newTrack"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="stop"
-            android:id="@+id/button2"
+            android:text="@string/end"
+            android:id="@+id/cancelTrackingButton"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:onClick="stopTracing"/>
+            android:visibility="gone"
+            android:onClick="stopTracking"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="opcja"
-            android:id="@+id/button3"
+            android:text="@string/cancel"
+            android:id="@+id/endTrackingTextButton"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:onClick="displayData"/>
+            android:visibility="gone"
+            android:onClick="cancelTracing"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/white" />
+
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

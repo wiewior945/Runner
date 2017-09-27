@@ -13,4 +13,7 @@
     <string name="register">Zarejestruj</string>
     <string name="repeat_password">Powtórz hasło</string>
     <string name="create_new_account">Nie masz konta? Załóż je!</string>
+    <string name="new_track">Nowa trasa</string>
+    <string name="cancel">Anuluj</string>
+    <string name="end">Zakończ</string>
 </resources>

@@ -39,12 +39,12 @@ public final class R {
         public static final int zOrderOnTop = 0x7f0100bd;
     }
     public static final class color {
-        public static final int common_google_signin_btn_text_dark = 0x7f0a005e;
+        public static final int common_google_signin_btn_text_dark = 0x7f0a005f;
         public static final int common_google_signin_btn_text_dark_default = 0x7f0a0017;
         public static final int common_google_signin_btn_text_dark_disabled = 0x7f0a0018;
         public static final int common_google_signin_btn_text_dark_focused = 0x7f0a0019;
         public static final int common_google_signin_btn_text_dark_pressed = 0x7f0a001a;
-        public static final int common_google_signin_btn_text_light = 0x7f0a005f;
+        public static final int common_google_signin_btn_text_light = 0x7f0a0060;
         public static final int common_google_signin_btn_text_light_default = 0x7f0a001b;
         public static final int common_google_signin_btn_text_light_disabled = 0x7f0a001c;
         public static final int common_google_signin_btn_text_light_focused = 0x7f0a001d;
@@ -77,7 +77,7 @@ public final class R {
         public static final int adjust_height = 0x7f0b001d;
         public static final int adjust_width = 0x7f0b001e;
         public static final int auto = 0x7f0b002a;
-        public static final int button = 0x7f0b0065;
+        public static final int button = 0x7f0b0068;
         public static final int dark = 0x7f0b002b;
         public static final int hybrid = 0x7f0b001f;
         public static final int icon_only = 0x7f0b0027;
@@ -88,8 +88,8 @@ public final class R {
         public static final int satellite = 0x7f0b0020;
         public static final int standard = 0x7f0b0028;
         public static final int terrain = 0x7f0b0021;
-        public static final int text = 0x7f0b0084;
-        public static final int text2 = 0x7f0b0082;
+        public static final int text = 0x7f0b008b;
+        public static final int text2 = 0x7f0b0089;
         public static final int wide = 0x7f0b0029;
         public static final int wrap_content = 0x7f0b0019;
     }

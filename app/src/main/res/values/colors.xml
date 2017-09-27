@@ -6,4 +6,5 @@
     <color name="darkOrange">#E67E22</color>
     <color name="lightOrange">#ffb472</color>
     <color name="background">#ededed</color>
+    <color name="grey">#c7cfd8</color>
 </resources>

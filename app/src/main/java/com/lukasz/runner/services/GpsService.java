@@ -3,6 +3,7 @@ package com.lukasz.runner.services;
 import android.Manifest;
 import android.app.Service;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -15,14 +16,20 @@ import android.support.v4.app.ActivityCompat;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.lukasz.runner.Utilities;
+import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.activities.MapsActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Lukasz on 2017-03-10.
@@ -30,20 +37,23 @@ import java.util.List;
 
 public class GpsService extends Service implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
+    public static final int GPS_ENABLE_DIALOG_REQUESTCODE = 1337;
+
     private Binder binder = new CreateBinder();
     private GoogleApiClient mGoogleApiClient;
-    private LocationRequest mLocationRequest;
-    private List<Track> coordsList = new ArrayList<Track>();
+    private LocationRequest locationRequest;
     private MapsActivity mapsActivity;
-
     private String temporaryData = "";
+    private boolean recordTrack = false;
+
 
     @Override
     public void onCreate() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this).build();
+                .addOnConnectionFailedListener(this)
+                .build();
         mGoogleApiClient.connect();
     }
 
@@ -64,26 +74,6 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
 
     }
 
-    //zaczyna nasłuchiwanie zmian pozycji, ------------ TRZEBA TEGO IFA OGARNĄĆ ----------------
-    public void startLocationUpdates() {
-        // Create the location request
-        mLocationRequest = LocationRequest.create()
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(1000);
-        // Request location updates
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-           // return;
-        }
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-    }
-
     //metoda potrzebna do zbindowania serwisu, tworzy obkiet Binder z metodą do pobrania instancji serwisu
     public class CreateBinder extends Binder {
         public GpsService getService() {
@@ -94,6 +84,45 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     public void setActivity(MapsActivity maps){
         mapsActivity = maps;
     }
+
+
+    //sprawdza czy aplikacja ma uprawnienia do GPS, potem sprawdza czy GPS jest włączony, na koniec uruchamia LocationListener
+    public void startLocationListening() {
+        final GpsService gps = this;
+        if(locationRequest == null){
+            locationRequest = LocationRequest.create().setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                    .setInterval(3000);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Utilities.requestGpsPermiossions(mapsActivity);
+        }
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
+        builder.addLocationRequest(locationRequest);
+        builder.setAlwaysShow(true);
+        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, builder.build());
+        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
+            @Override
+            public void onResult(LocationSettingsResult result) {
+                Status status = result.getStatus();
+                switch (status.getStatusCode()) {
+                    case LocationSettingsStatusCodes.SUCCESS:   //GPS aktywny, włączenie LocationListener
+                        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, locationRequest, gps);
+                        break;
+                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:   //GPS wyłączony, okienko z włączeniem
+                        try{
+                            status.startResolutionForResult(mapsActivity, GPS_ENABLE_DIALOG_REQUESTCODE);
+                        }catch (IntentSender.SendIntentException e){
+
+                        }
+                        break;
+                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:   //do końca nie wiem, chyba brak GPS w urządzeniu
+                        InfoDialog.showOkDialog(mapsActivity, "Nie można aktywować GPS");
+                        break;
+                }
+            }
+        });
+    }
+
 
     //wyłącza nasłuchiwanie zmian lokacji, zapisuje trasę
     public void stopLocation(){
@@ -106,7 +135,8 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
 
     @Override
     public void onLocationChanged(Location location) {
-        Track coords = new Track(location.getLongitude(), location.getLatitude());
-        temporaryData += (coords.getLongtitude()+ "_" +coords.getlatitude()+"_"+ coords.getDate()+";");
+        mapsActivity.setGpsFlag(true);
+        mapsActivity.centerMap(location.getLatitude(), location.getLongitude());
+        System.out.println("@@@   "+location.getLatitude()+"   "+location.getLongitude());
     }
 }

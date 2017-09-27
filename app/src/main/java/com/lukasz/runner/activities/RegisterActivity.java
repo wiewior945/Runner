@@ -1,14 +1,11 @@
 package com.lukasz.runner.activities;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -55,7 +52,7 @@ public class RegisterActivity extends Activity implements View.OnTouchListener, 
      */
     public void register(View view){
         try{
-            Utilities.checkInternetPermissions(this);
+            Utilities.requestInternetPermissions(this);
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
             if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null) {
                 if (isAnyFieldEmpty()) {
@@ -73,21 +70,21 @@ public class RegisterActivity extends Activity implements View.OnTouchListener, 
                 asyncTask.execute(login, password);
                 Boolean isCreated = asyncTask.get(5, TimeUnit.SECONDS);
                 if(isCreated){
-                   userCreatedDialog = InfoDialog.showDialog(this, "Pomyślnie utworzono użytkownika", this);
+                   userCreatedDialog = InfoDialog.showOkDialog(this, "Pomyślnie utworzono użytkownika", this);
                 }
                 else{
-                    InfoDialog.showDialog(this, "Ta nazwa użytkownika jest już zajęta!");
+                    InfoDialog.showOkDialog(this, "Ta nazwa użytkownika jest już zajęta!");
                 }
             }
             else{
-                InfoDialog.showDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
+                InfoDialog.showOkDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
             }
         }
         catch(InterruptedException  | ExecutionException e){
-            InfoDialog.showDialog(this, "błąd w metodzie obsługującej przycisk");
+            InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
         }
         catch(TimeoutException e) {
-            InfoDialog.showDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
+            InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
             e.printStackTrace();
         }
     }

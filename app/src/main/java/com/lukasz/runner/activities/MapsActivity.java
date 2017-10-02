@@ -41,6 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GpsService gpsService;
     private User user;
     private Handler handler = new Handler();
+    private Runnable trackTimer;
     private boolean trackingFlag=true;  //czy mapa ma podążać za znacznikiem (obecnym  miejscem)
     private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
 
@@ -62,7 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = new Intent(this, GpsService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
-//        Bundle data = getIntent().getExtras();
+//        Bundle data = getIntent().getExtras();        //TODO dodać logowanie
 //        user = data.getParcelable("user");
     }
 
@@ -113,7 +114,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         endTrackButton.setVisibility(View.VISIBLE);
         timerTextView.setVisibility(View.VISIBLE);
         handler.post(new CountDown());
-        //TODO: zapisywanie trasy
+        gpsService.newTrack(new User());              //TODO podmienić na prawdziwego usera
     }
 
     //metoda do przycisku "stop", zatrzymuje nasłuciwanie pozycji, zamyka menu
@@ -121,9 +122,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //TODO: zapisanie trasy
     }
 
+    /*
+        Metoda do przycisku anulowania trasy. Wyświetla dialog i obsługuje przyciski. W przycisku w metodzie getTag() jest referencja do dialogu.
+     */
     public void cancelTracing(View view){
-        //dialog  z zapytaniem o anulowanie
-        //TODO: anulowanie nagrywania trasy
+        InfoDialog.showCancelDialog(this, getResources().getText(R.string.confimation_cancel_track).toString(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v.getId()==(R.id.cancelDialogCancelButton)){ //CANCEL
+                    Dialog d = (Dialog) v.getTag();
+                    d.dismiss();
+                }
+                else if(v.getId()==R.id.cancelDialogOkButton){  //OK
+                    handler.removeCallbacks(trackTimer);
+                    hideTrackButtons();
+                    timerTextView.setText("00:00");
+                    gpsService.cancelTrack();
+                    drawerMenu.closeDrawer(Gravity.LEFT);
+                    Dialog d = (Dialog) v.getTag();
+                    d.dismiss();
+                }
+            }
+        });
     }
 
     //zmienia flagę czy mapa powinna podążać za znacznikiem, urachmia ListenerLocation jeśli jeszcze nie jest uruchomiony, zmienie kolor przycisku
@@ -139,6 +159,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     //==================================================================================================================
 
+    private void hideTrackButtons(){
+        newTrackButton.setEnabled(true);
+        newTrackButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+        cancelTrackButton.setVisibility(View.GONE);
+        endTruckTextButton.setVisibility(View.GONE);
+        endTrackButton.setVisibility(View.GONE);
+        timerTextView.setVisibility(View.GONE);
+    }
 
     /*
         Metoda do obsługi systemowego dialogu aktywującego GPS. If to wciśnięcie przycisku ok, else - anuluj.
@@ -189,7 +217,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 handler.postDelayed(this, 1000);
                 step--;
             }
-            else handler.post(new TrackTimer());
+            else{
+                handler.post(trackTimer = new TrackTimer());
+            }
         }
     }
 
@@ -199,6 +229,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         public void run() {
+            System.out.println("timer");
+            gpsService.setRecordTrack(true);
             seconds++;
             if(seconds==60){
                 minutes++;

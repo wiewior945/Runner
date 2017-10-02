@@ -1,8 +1,12 @@
 package com.lukasz.runner.entities;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Lukasz on 2017-03-15.
@@ -10,34 +14,58 @@ import java.util.Date;
 
 public class Track {
 
-    private double longtitude, langtitude;
-    private String date;
+    private User user;
+    private List<Double> latitude = new ArrayList<>();
+    private List<Double> longtitude = new ArrayList<>();
+    private LatLng startPoint, endPoint;
+    private Date dateCreated = new Date();
 
-    public Track(double longtitude, double latitude){
+    public Track(User user){
+        this.user=user;
+    }
+
+
+    public void addCoords(Double lat, Double lng){
+        latitude.add(lat);
+        longtitude.add(lng);
+    }
+
+
+
+    public void setLatitude(List<Double> latitude){
+        this.latitude = latitude;
+    }
+    public List<Double> getLatitude(){
+        return latitude;
+    }
+    public void setLongtitude(List<Double> longtitude){
         this.longtitude = longtitude;
-        this.langtitude = latitude;
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-        this.date = format.format(date);
     }
-
-    public void setLongtitude(double x){
-        this.longtitude = x;
-    }
-
-    public void setlatitude(double x){
-        this.langtitude = x;
-    }
-
-    public double getLongtitude(){
+    public List<Double> getLongtitude(){
         return longtitude;
     }
-
-    public double getlatitude(){
-        return langtitude;
+    public void setDateCreated(Date date){
+        dateCreated = date;
     }
-
-    public String getDate(){
-        return date;
+    public Date getDateCreated(){
+        return dateCreated;
+    }
+    public void setStartPoint(LatLng point){
+        startPoint = point;
+    }
+    public LatLng getStartPoint(){
+        return startPoint;
+    }
+    public void setEndPoint(LatLng point){
+        endPoint = point;
+    }
+    public LatLng getEndPoint(){
+        return endPoint;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public User getUser() {
+        return user;
     }
 }

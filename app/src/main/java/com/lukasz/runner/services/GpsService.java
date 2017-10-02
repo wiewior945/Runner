@@ -30,6 +30,7 @@ import com.lukasz.runner.Utilities;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.activities.MapsActivity;
+import com.lukasz.runner.entities.User;
 
 /**
  * Created by Lukasz on 2017-03-10.
@@ -43,7 +44,7 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest locationRequest;
     private MapsActivity mapsActivity;
-    private String temporaryData = "";
+    private Track track;
     private boolean recordTrack = false;
 
 
@@ -124,19 +125,45 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     }
 
 
-    //wyłącza nasłuchiwanie zmian lokacji, zapisuje trasę
-    public void stopLocation(){
-        mGoogleApiClient.disconnect();
-        SharedPreferences sharedPref = getSharedPreferences("coords", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("data", temporaryData);
-        editor.commit();
+//    //wyłącza nasłuchiwanie zmian lokacji, zapisuje trasę
+//    public void stopLocation(){
+//        mGoogleApiClient.disconnect();
+//        SharedPreferences sharedPref = getSharedPreferences("coords", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("data", temporaryData);
+//        editor.commit();
+//    }
+
+    public void newTrack(User user){
+        track = new Track(user);
+    }
+
+    public void saveTrack(){
+        //TODO zapisać trasę
+        recordTrack=false;
+        track = null;
+    }
+
+    public void cancelTrack(){
+        recordTrack=false;
+        track=null;
     }
 
     @Override
     public void onLocationChanged(Location location) {
         mapsActivity.setGpsFlag(true);
         mapsActivity.centerMap(location.getLatitude(), location.getLongitude());
+        if(recordTrack){
+            track.addCoords(location.getLatitude(), location.getLongitude());
+        }
         System.out.println("@@@   "+location.getLatitude()+"   "+location.getLongitude());
+    }
+
+
+    public void setRecordTrack(boolean bool){
+        recordTrack=bool;
+    }
+    public boolean isRecordTrack() {
+        return recordTrack;
     }
 }

@@ -16,4 +16,5 @@
     <string name="new_track">Nowa trasa</string>
     <string name="cancel">Anuluj</string>
     <string name="end">Zakończ</string>
+    <string name="confimation_cancel_track">Czy na pewno chcesz przerwać trasę? Postęp nie zostanie zapisany</string>
 </resources>

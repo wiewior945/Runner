@@ -51,6 +51,7 @@
         </activity>
         <activity android:name="com.lukasz.runner.activities.MapsActivity" />
         <activity android:name="com.lukasz.runner.activities.RegisterActivity" />
+        <activity android:name="com.lukasz.runner.activities.SaveTrackActivity" />
 
         <service android:name="com.lukasz.runner.services.GpsService" />
 

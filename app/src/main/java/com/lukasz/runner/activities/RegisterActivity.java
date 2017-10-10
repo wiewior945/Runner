@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -122,15 +123,15 @@ public class RegisterActivity extends Activity implements View.OnTouchListener, 
     public boolean onTouch(View v, MotionEvent event) {
         if(v.equals(loginInput)){
             loginInput.setHint("Nazwa użytkownika");
-            loginInput.setHintTextColor(Color.parseColor("#ffb472"));
+            loginInput.setHintTextColor(ContextCompat.getColor(this, R.color.lightOrange));
         }
         else if(v.equals(passwordInput)){
             passwordInput.setHint("Hasło");
-            passwordInput.setHintTextColor(Color.parseColor("#ffb472"));
+            passwordInput.setHintTextColor(ContextCompat.getColor(this, R.color.lightOrange));
         }
         else if(v.equals(repeatPasswordInput)){
             repeatPasswordInput.setHint("Powtórz hasło");
-            repeatPasswordInput.setHintTextColor(Color.parseColor("#ffb472"));
+            repeatPasswordInput.setHintTextColor(ContextCompat.getColor(this, R.color.lightOrange));
         }
         return false;
     }

@@ -72,6 +72,10 @@
         "source": "D:\\workspace\\Runner\\app\\src\\main\\res\\layout\\regitration_layout.xml"
     },
     {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\save_track_activity.xml",
+        "source": "D:\\workspace\\Runner\\app\\src\\main\\res\\layout\\save_track_activity.xml"
+    },
+    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "C:\\Users\\Lukasz\\.android\\build-cache\\a4662574ee8b1b8674a623502041f2af130b2f71\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },

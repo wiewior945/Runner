@@ -138,10 +138,12 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
         track = new Track(user);
     }
 
-    public void saveTrack(){
-        //TODO zapisać trasę
+    public Track saveTrack(){
         recordTrack=false;
+        track.endTrack();
+        Track tempTrack = track;
         track = null;
+        return tempTrack;
     }
 
     public void cancelTrack(){

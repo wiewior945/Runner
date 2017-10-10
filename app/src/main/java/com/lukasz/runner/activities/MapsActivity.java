@@ -26,6 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.lukasz.runner.R;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
+import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.entities.User;
 import com.lukasz.runner.services.GpsService;
 import com.lukasz.runner.services.GpsService.CreateBinder;
@@ -114,12 +115,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         endTrackButton.setVisibility(View.VISIBLE);
         timerTextView.setVisibility(View.VISIBLE);
         handler.post(new CountDown());
-        gpsService.newTrack(new User());              //TODO podmienić na prawdziwego usera
+        User u = new User();
+        u.setId(111L);
+        u.setName("nazwa");
+        u.setPassword("haslo");
+        gpsService.newTrack(u);              //TODO podmienić na prawdziwego usera
     }
 
-    //metoda do przycisku "stop", zatrzymuje nasłuciwanie pozycji, zamyka menu
+    //metoda do przycisku "stop", zatrzymuje zegar, zamyka menu, resetuje trasę w gpsService, przekazuje trasę do Activity zapisu trasy
     public void stopTracking(View view){
-        //TODO: zapisanie trasy
+        handler.removeCallbacks(trackTimer);
+        drawerMenu.closeDrawer(Gravity.LEFT);
+        hideTrackButtons();
+        Track track = gpsService.saveTrack();
+        track.setTime(timerTextView.getText().toString());
+        timerTextView.setText("00:00");
+        Intent intent = new Intent(this, SaveTrackActivity.class);
+        intent.putExtra("track", track);
+        startActivity(intent);
     }
 
     /*
@@ -229,7 +242,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         public void run() {
-            System.out.println("timer");
             gpsService.setRecordTrack(true);
             seconds++;
             if(seconds==60){

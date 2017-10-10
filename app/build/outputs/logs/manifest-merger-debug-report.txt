@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
 		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:3:5-32
 		INJECTED from D:\workspace\Runner\app\src\main\AndroidManifest.xml
@@ -32,7 +32,7 @@ MERGED from [com.google.android.gms:play-services-maps:10.0.0] C:\Users\Lukasz\.
 	android:name
 		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:8:22-76
 application
-ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:10:5-40:19
+ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:10:5-41:19
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\Lukasz\.android\build-cache\a4662574ee8b1b8674a623502041f2af130b2f71\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\Lukasz\.android\build-cache\66c604d80d91edf9a27a4ac3caaab42966d146a8\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\Lukasz\.android\build-cache\41b8a0fc22a0fdf65608045fab4c5b18f70028f4\output\AndroidManifest.xml:23:5-20
@@ -87,10 +87,14 @@ activity#com.lukasz.runner.activities.RegisterActivity
 ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:38:9-64
 	android:name
 		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:38:19-62
-service#com.lukasz.runner.services.GpsService
-ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:39:9-55
+activity#com.lukasz.runner.activities.SaveTrackActivity
+ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:39:9-65
 	android:name
-		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:39:18-53
+		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:39:19-63
+service#com.lukasz.runner.services.GpsService
+ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:40:9-55
+	android:name
+		ADDED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:40:18-53
 uses-sdk
 INJECTED from D:\workspace\Runner\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\Lukasz\.android\build-cache\a4662574ee8b1b8674a623502041f2af130b2f71\output\AndroidManifest.xml:21:5-23:78
@@ -121,11 +125,11 @@ ADDED from [com.google.android.gms:play-services-maps:10.0.0] C:\Users\Lukasz\.a
 	android:required
 		ADDED from [com.google.android.gms:play-services-maps:10.0.0] C:\Users\Lukasz\.android\build-cache\8409c95fcf463512e45b3c444de10c2d27407b62\output\AndroidManifest.xml:21:52-75
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-43:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-43:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gms.location requested WRITE_EXTERNAL_STORAGE
+IMPLIED from D:\workspace\Runner\app\src\main\AndroidManifest.xml:2:1-43:12 reason: com.google.android.gms.location requested WRITE_EXTERNAL_STORAGE
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:10.0.0] C:\Users\Lukasz\.android\build-cache\8db8937b906e0832cc2823e30907ec0ca53639e6\output\AndroidManifest.xml:19:9-172
 	android:exported

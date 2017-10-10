@@ -418,20 +418,28 @@
     <string name="confimation_cancel_track">Czy na pewno chcesz przerwać trasę? Postęp nie zostanie zapisany</string>
     <string name="create_new_account">Nie masz konta? Załóż je!</string>
     <string name="end">Zakończ</string>
+    <string name="finish_description">Opis mety:</string>
+    <string name="finish_hint">Krótko opisz cechy miejsca z którego startowałeś. To pomoże użytkownikom znaleźć metę</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDfjZqyIe1ui0SO0GFpW0x8jUgneYF5j8U</string>
     <string name="login">Zaloguj</string>
+    <string name="name">Nazwa:</string>
     <string name="new_track">Nowa trasa</string>
     <string name="password">Hasło</string>
+    <string name="provide_name">Wprowadź nazwę</string>
     <string name="register">Zarejestruj</string>
     <string name="repeat_password">Powtórz hasło</string>
+    <string name="save">Zapisz</string>
     <string name="search_menu_title">Search</string>
     <string name="server">http://192.168.8.100:8080</string>
+    <string name="start_description">Opis startu:</string>
+    <string name="start_hint">Krótko opisz cechy miejsca z którego startowałeś. To pomoże użytkownikom znaleźć punkt startu</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_maps">Map</string>
     <string name="username">Login</string>
     <string name="username2">Nazwa użytkownika</string>
     <string name="ws_login">/Runner/webservice/login</string>
     <string name="ws_register">/Runner/webservice/register</string>
+    <string name="your_time">Twój czas</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

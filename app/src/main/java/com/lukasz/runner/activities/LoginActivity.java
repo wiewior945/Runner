@@ -47,33 +47,30 @@ public class LoginActivity extends Activity {
         Utilities.requestInternetPermissions(this);
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-
-//        if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null){
-//            try {
-//                String login = loginEditText.getText().toString();
-//                String password = passwordEditText.getText().toString();
-//                CheckUser asyncTask = new CheckUser();
-//                asyncTask.execute(login, password);
-//                User user = asyncTask.get(5, TimeUnit.SECONDS);
-//                if(user!=null){
-//                    Intent intent = new Intent(this, MapsActivity.class);
-//                    intent.putExtra("user", user);
-//                    startActivity(intent);
-//                }
-//                else InfoDialog.showOkDialog(this, "Podano błędny login lub hasło. Spróbuj ponownie."); //serwer zwrócił pusty wynik = błędny login/hasło
-//            } catch (InterruptedException  | ExecutionException e) {
-//                InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
-//                e.printStackTrace();
-//            } catch (TimeoutException e) {
-//                InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
-//                e.printStackTrace();
-//            }
-//        }
-//        else{
-//            InfoDialog.showOkDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
-//        }
+        if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null){
+            try {
+                String login = loginEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                CheckUser asyncTask = new CheckUser();
+                asyncTask.execute(login, password);
+                User user = asyncTask.get(5, TimeUnit.SECONDS);
+                if(user!=null){
+                    Intent intent = new Intent(this, MapsActivity.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
+                }
+                else InfoDialog.showOkDialog(this, "Podano błędny login lub hasło. Spróbuj ponownie."); //serwer zwrócił pusty wynik = błędny login/hasło
+            } catch (InterruptedException  | ExecutionException e) {
+                InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
+                e.printStackTrace();
+            } catch (TimeoutException e) {
+                InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
+                e.printStackTrace();
+            }
+        }
+        else{
+            InfoDialog.showOkDialog(this, "Brak połączenia z internetem.");   //nie wykryto sieci
+        }
     }
 
 

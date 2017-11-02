@@ -5,7 +5,7 @@
 
     <string name="ws_login">/Runner/webservice/login</string>
     <string name="ws_register">/Runner/webservice/register</string>
-    <string name="ws_save_track">/Runner/webservices/saveTrack</string>
+    <string name="ws_save_track">/Runner/webservice/saveTrack</string>
 
     <string name="username">Login</string>
     <string name="username2">Nazwa użytkownika</string>

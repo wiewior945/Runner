@@ -1,4 +1,4 @@
-#Tue Oct 10 18:41:33 CEST 2017
+#Sun Oct 29 17:16:47 CET 2017
 base.0=D\:\\workspace\\Runner\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6
 renamed.0=classes.dex
 file.0=D\:\\workspace\\Runner\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6\\classes.dex

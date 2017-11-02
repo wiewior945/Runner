@@ -64,8 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = new Intent(this, GpsService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
-//        Bundle data = getIntent().getExtras();        //TODO dodać logowanie
-//        user = data.getParcelable("user");
+        Bundle data = getIntent().getExtras();
+        user = data.getParcelable("user");
     }
 
 
@@ -75,9 +75,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         map = googleMap;
         map.setMyLocationEnabled(true);
         map.getUiSettings().setCompassEnabled(true);
-        map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk do namierzania obecnej lokalizacji
+        map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk googla do namierzania obecnej lokalizacji
         map.animateCamera(CameraUpdateFactory.newLatLng(warsaw));
         map.animateCamera(CameraUpdateFactory.zoomTo(15));
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+//        if(gpsService!=null){ // przy starcie aplikacji gpsService jest nullem. To uruchamia listener gdy podczss działania aplikacji ktoś wyłączy gps
+//            gpsService.startLocationListening();
+//        }
     }
 
 
@@ -115,24 +123,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         endTrackButton.setVisibility(View.VISIBLE);
         timerTextView.setVisibility(View.VISIBLE);
         handler.post(new CountDown());
-        User u = new User();
-        u.setId(111L);
-        u.setName("nazwa");
-        u.setPassword("haslo");
-        gpsService.newTrack(u);              //TODO podmienić na prawdziwego usera
+        gpsService.newTrack(user);
     }
 
     //metoda do przycisku "stop", zatrzymuje zegar, zamyka menu, resetuje trasę w gpsService, przekazuje trasę do Activity zapisu trasy
+    //jeśli nie wykryto zmiany pozycji (telefon stał w miejscu albo brak sygnału gps) to service zwraca nulla. Taka trasa nie jest zapisywana.
     public void stopTracking(View view){
         handler.removeCallbacks(trackTimer);
         drawerMenu.closeDrawer(Gravity.LEFT);
         hideTrackButtons();
         Track track = gpsService.saveTrack();
-        track.setTime(timerTextView.getText().toString());
+        if(track!=null){                        // jeśli jest nullem w GPS service wyświetlany jest komunikat o braku ruchu
+            track.setTime(timerTextView.getText().toString());
+            Intent intent = new Intent(this, SaveTrackActivity.class);
+            intent.putExtra("track", track);
+            startActivity(intent);
+        }
         timerTextView.setText("00:00");
-        Intent intent = new Intent(this, SaveTrackActivity.class);
-        intent.putExtra("track", track);
-        startActivity(intent);
     }
 
     /*

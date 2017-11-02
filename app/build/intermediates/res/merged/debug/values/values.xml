@@ -417,6 +417,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="confimation_cancel_track">Czy na pewno chcesz przerwać trasę? Postęp nie zostanie zapisany</string>
     <string name="create_new_account">Nie masz konta? Załóż je!</string>
+    <string name="empty_field_warning">To pole nie może zostać putse!</string>
     <string name="end">Zakończ</string>
     <string name="finish_description">Opis mety:</string>
     <string name="finish_hint">Krótko opisz cechy miejsca z którego startowałeś. To pomoże użytkownikom znaleźć metę</string>
@@ -439,6 +440,7 @@
     <string name="username2">Nazwa użytkownika</string>
     <string name="ws_login">/Runner/webservice/login</string>
     <string name="ws_register">/Runner/webservice/register</string>
+    <string name="ws_save_track">/Runner/webservice/saveTrack</string>
     <string name="your_time">Twój czas</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

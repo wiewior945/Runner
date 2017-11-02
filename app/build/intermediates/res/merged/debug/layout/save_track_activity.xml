@@ -114,7 +114,8 @@
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:onClick="cancelTrackSave"/>
 
         <Button
             android:id="@+id/saveTrackSaveButton"
@@ -126,7 +127,8 @@
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:onClick="saveTrack"/>
     </LinearLayout>
 
 </RelativeLayout>

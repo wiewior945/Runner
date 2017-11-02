@@ -17,11 +17,15 @@ import java.util.List;
 
 public class Track implements Parcelable{
 
+
+
     //wprowadzać zmiany w Parclable!!!
+    private Long id=0L;
     private User user;
     private List<Double> latitude = new ArrayList<>();
     private List<Double> longtitude = new ArrayList<>();
-    private LatLng startPoint, endPoint;
+    private Double startLatitude, startLomgtitude;
+    private Double endLatitude, endLomgtitude;
     private Date dateCreated = new Date();
     private String startDescription;
     private String finishDescription;
@@ -38,9 +42,18 @@ public class Track implements Parcelable{
         longtitude.add(lng);
     }
 
-    public void endTrack(){
-        startPoint = new LatLng(latitude.get(0), longtitude.get(0));
-        endPoint = new LatLng(latitude.get(latitude.size()-1), longtitude.get(longtitude.size()-1));
+    public boolean endTrack(){
+        try{
+            startLatitude = latitude.get(0);
+            startLomgtitude = longtitude.get(0);
+            endLatitude = latitude.get(latitude.size()-1);
+            endLomgtitude = longtitude.get(longtitude.size()-1);
+            return true;
+        }
+        catch(IndexOutOfBoundsException e){
+            return false;
+        }
+
     }
 
 
@@ -63,18 +76,14 @@ public class Track implements Parcelable{
     public Date getDateCreated(){
         return dateCreated;
     }
-    public void setStartPoint(LatLng point){
-        startPoint = point;
-    }
-    public LatLng getStartPoint(){
-        return startPoint;
-    }
-    public void setEndPoint(LatLng point){
-        endPoint = point;
-    }
-    public LatLng getEndPoint(){
-        return endPoint;
-    }
+    public Double getStartLatitude() {return startLatitude;}
+    public void setStartLatitude(Double startLatitude) {this.startLatitude = startLatitude;}
+    public Double getStartLomgtitude() {return startLomgtitude;}
+    public void setStartLomgtitude(Double startLomgtitude) {this.startLomgtitude = startLomgtitude;}
+    public Double getEndLatitude() {return endLatitude;}
+    public void setEndLatitude(Double endLatitude) {this.endLatitude = endLatitude;}
+    public Double getEndLomgtitude() {return endLomgtitude;}
+    public void setEndLomgtitude(Double endLomgtitude) {this.endLomgtitude = endLomgtitude;}
     public void setUser(User user) {
         this.user = user;
     }
@@ -103,16 +112,20 @@ public class Track implements Parcelable{
     public void setTime(String time) {
         this.time = time;
     }
-
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
 
     //----------------------  PARCELABLE ------------------------------------
     public Track(Parcel in){ //zachować kolejność z writeToParcel
         final ClassLoader cl = getClass().getClassLoader();
+        id=in.readLong();
         user = (User)in.readValue(cl);
         in.readList(latitude, cl);
         in.readList(longtitude, cl);
-        startPoint = (LatLng)in.readValue(cl);
-        endPoint = (LatLng)in.readValue(cl);
+        startLatitude = in.readDouble();
+        startLomgtitude = in.readDouble();
+        endLatitude = in.readDouble();
+        endLomgtitude = in.readDouble();
         dateCreated = (Date)in.readValue(cl);
         startDescription = in.readString();
         finishDescription = in.readString();
@@ -122,11 +135,14 @@ public class Track implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
         dest.writeValue(user);
         dest.writeList(latitude);
         dest.writeList(longtitude);
-        dest.writeValue(startPoint);
-        dest.writeValue(endPoint);
+        dest.writeDouble(startLatitude);
+        dest.writeDouble(startLomgtitude);
+        dest.writeDouble(endLatitude);
+        dest.writeDouble(endLomgtitude);
         dest.writeValue(dateCreated);
         dest.writeString(startDescription);
         dest.writeString(finishDescription);

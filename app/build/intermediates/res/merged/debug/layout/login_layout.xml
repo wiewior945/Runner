@@ -65,4 +65,5 @@
         android:textAlignment="center"
         android:textColor="@color/darkOrange"
         android:onClick="goToRegisterWindow"/>
+
 </RelativeLayout>

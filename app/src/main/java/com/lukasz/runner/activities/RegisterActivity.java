@@ -82,7 +82,7 @@ public class RegisterActivity extends Activity implements View.OnTouchListener, 
             }
         }
         catch(InterruptedException  | ExecutionException e){
-            InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
+            e.printStackTrace();
         }
         catch(TimeoutException e) {
             InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf

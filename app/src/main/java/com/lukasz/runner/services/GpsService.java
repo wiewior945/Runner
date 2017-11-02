@@ -138,10 +138,16 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
         track = new Track(user);
     }
 
+    //jeśli nie zapisani żadnego punktu (zmiany położenia) nie ma co zapisywac trasy i zwra nulla
     public Track saveTrack(){
         recordTrack=false;
-        track.endTrack();
-        Track tempTrack = track;
+        Track tempTrack;
+        if(track.endTrack()){
+            tempTrack = track;
+        }else{
+            tempTrack=null;
+            InfoDialog.showOkDialog(mapsActivity, "Nie zanotowano żadnej zmiany położenia. Sprawdź ustawienia GPS lub rusz tyłek!.");
+        }
         track = null;
         return tempTrack;
     }
@@ -167,5 +173,13 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     }
     public boolean isRecordTrack() {
         return recordTrack;
+    }
+
+    private class GpsChecking implements Runnable{
+
+        @Override
+        public void run() {
+
+        }
     }
 }

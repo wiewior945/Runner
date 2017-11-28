@@ -3,10 +3,6 @@ package com.lukasz.runner.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.maps.model.LatLng;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +19,9 @@ public class Track implements Parcelable{
     private Long id=0L;
     private User user;
     private List<Double> latitude = new ArrayList<>();
-    private List<Double> longtitude = new ArrayList<>();
-    private Double startLatitude, startLomgtitude;
-    private Double endLatitude, endLomgtitude;
+    private List<Double> longitude = new ArrayList<>();
+    private Double startLatitude, startLongitude;
+    private Double endLatitude, endLongitude;
     private Date dateCreated = new Date();
     private String startDescription;
     private String finishDescription;
@@ -39,15 +35,15 @@ public class Track implements Parcelable{
 
     public void addCoords(Double lat, Double lng){
         latitude.add(lat);
-        longtitude.add(lng);
+        longitude.add(lng);
     }
 
     public boolean endTrack(){
         try{
             startLatitude = latitude.get(0);
-            startLomgtitude = longtitude.get(0);
+            startLongitude = longitude.get(0);
             endLatitude = latitude.get(latitude.size()-1);
-            endLomgtitude = longtitude.get(longtitude.size()-1);
+            endLongitude = longitude.get(longitude.size()-1);
             return true;
         }
         catch(IndexOutOfBoundsException e){
@@ -64,11 +60,11 @@ public class Track implements Parcelable{
     public List<Double> getLatitude(){
         return latitude;
     }
-    public void setLongtitude(List<Double> longtitude){
-        this.longtitude = longtitude;
+    public void setLongitude(List<Double> longitude){
+        this.longitude = longitude;
     }
-    public List<Double> getLongtitude(){
-        return longtitude;
+    public List<Double> getLongitude(){
+        return longitude;
     }
     public void setDateCreated(Date date){
         dateCreated = date;
@@ -78,12 +74,12 @@ public class Track implements Parcelable{
     }
     public Double getStartLatitude() {return startLatitude;}
     public void setStartLatitude(Double startLatitude) {this.startLatitude = startLatitude;}
-    public Double getStartLomgtitude() {return startLomgtitude;}
-    public void setStartLomgtitude(Double startLomgtitude) {this.startLomgtitude = startLomgtitude;}
+    public Double getStartLongitude() {return startLongitude;}
+    public void setStartLongitude(Double startLongitude) {this.startLongitude = startLongitude;}
     public Double getEndLatitude() {return endLatitude;}
     public void setEndLatitude(Double endLatitude) {this.endLatitude = endLatitude;}
-    public Double getEndLomgtitude() {return endLomgtitude;}
-    public void setEndLomgtitude(Double endLomgtitude) {this.endLomgtitude = endLomgtitude;}
+    public Double getEndLongitude() {return endLongitude;}
+    public void setEndLongitude(Double endLongitude) {this.endLongitude = endLongitude;}
     public void setUser(User user) {
         this.user = user;
     }
@@ -121,11 +117,11 @@ public class Track implements Parcelable{
         id=in.readLong();
         user = (User)in.readValue(cl);
         in.readList(latitude, cl);
-        in.readList(longtitude, cl);
+        in.readList(longitude, cl);
         startLatitude = in.readDouble();
-        startLomgtitude = in.readDouble();
+        startLongitude = in.readDouble();
         endLatitude = in.readDouble();
-        endLomgtitude = in.readDouble();
+        endLongitude = in.readDouble();
         dateCreated = (Date)in.readValue(cl);
         startDescription = in.readString();
         finishDescription = in.readString();
@@ -138,11 +134,11 @@ public class Track implements Parcelable{
         dest.writeLong(id);
         dest.writeValue(user);
         dest.writeList(latitude);
-        dest.writeList(longtitude);
+        dest.writeList(longitude);
         dest.writeDouble(startLatitude);
-        dest.writeDouble(startLomgtitude);
+        dest.writeDouble(startLongitude);
         dest.writeDouble(endLatitude);
-        dest.writeDouble(endLomgtitude);
+        dest.writeDouble(endLongitude);
         dest.writeValue(dateCreated);
         dest.writeString(startDescription);
         dest.writeString(finishDescription);

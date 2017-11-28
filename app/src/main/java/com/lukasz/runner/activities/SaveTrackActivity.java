@@ -90,7 +90,7 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
                 //InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
         }
             catch(TimeoutException e) {
-            InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf
+            InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekund
             e.printStackTrace();
         }
     }

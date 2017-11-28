@@ -171,15 +171,4 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     public void setRecordTrack(boolean bool){
         recordTrack=bool;
     }
-    public boolean isRecordTrack() {
-        return recordTrack;
-    }
-
-    private class GpsChecking implements Runnable{
-
-        @Override
-        public void run() {
-
-        }
-    }
 }

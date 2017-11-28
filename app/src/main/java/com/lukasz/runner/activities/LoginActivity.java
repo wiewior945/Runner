@@ -61,7 +61,7 @@ public class LoginActivity extends Activity {
                 }
                 else InfoDialog.showOkDialog(this, "Podano błędny login lub hasło. Spróbuj ponownie."); //serwer zwrócił pusty wynik = błędny login/hasło
             } catch (InterruptedException  | ExecutionException e) {
-                InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
+               // InfoDialog.showOkDialog(this, "błąd w metodzie obsługującej przycisk");
                 e.printStackTrace();
             } catch (TimeoutException e) {
                 InfoDialog.showOkDialog(this, "Brak odpowiedzi serwera.");   //serwer nie odpowiedział przez 5 sekunf

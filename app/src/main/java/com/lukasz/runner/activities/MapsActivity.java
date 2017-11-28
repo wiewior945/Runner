@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
@@ -24,14 +25,24 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.lukasz.runner.R;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
+import com.lukasz.runner.entities.MarkerInfo;
 import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.entities.User;
 import com.lukasz.runner.services.GpsService;
 import com.lukasz.runner.services.GpsService.CreateBinder;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener{
 
     private GoogleMap map;
     private DrawerLayout drawerMenu;
@@ -43,6 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private User user;
     private Handler handler = new Handler();
     private Runnable trackTimer;
+    private List<MarkerInfo> currentlyVisibleMarkers = new ArrayList<>();
     private boolean trackingFlag=true;  //czy mapa ma podążać za znacznikiem (obecnym  miejscem)
     private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
 
@@ -73,6 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         LatLng warsaw = new LatLng(52.23, 21.006);
         map = googleMap;
+        map.setOnCameraIdleListener(this);
         map.setMyLocationEnabled(true);
         map.getUiSettings().setCompassEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk googla do namierzania obecnej lokalizacji
@@ -105,6 +118,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     };
 
+    //liestener obsługujący poruszanie się mapy, ładuje trasy gdy mapa zostanie przesunięta
+    @Override
+    public void onCameraIdle() {
+            LatLng rightBottom = map.getProjection().getVisibleRegion().nearRight;
+            LatLng leftTop = map.getProjection().getVisibleRegion().farLeft;
+            new UpdateTracksOnMap().execute(leftTop,rightBottom);
+    }
 
     //=========================================  PRZYCISKI  =========================================================
 
@@ -210,7 +230,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             CameraUpdate updatedLocation = CameraUpdateFactory.newLatLng(coords);
             map.animateCamera(updatedLocation);
         }
-
     }
 
     //=============================================  TIMERY  ===========================================================
@@ -271,5 +290,59 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     private MapsActivity getActiviy(){
         return this;
+    }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------
+    //pobiera pozycję znaczników na mapie dla widocznego obszaru i dodaje je na mapę
+    private class UpdateTracksOnMap extends AsyncTask<LatLng, Void, List<MarkerInfo>>{
+
+        @Override
+        protected List<MarkerInfo> doInBackground(LatLng... corners) {
+            String url = getString(R.string.server)+getString(R.string.ws_update_track_markers);
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+            /*  serwer zwraca listę HashMap, nie znalazłem metody do mapowania takich danych do obiektów
+             *  dlatego ta pętla leci po wszystkich danych z serwera i tworzy z nich ArrayListę obiektów
+             */
+            List<LinkedHashMap> json = (List<LinkedHashMap>) restTemplate.postForObject(url, corners, List.class);
+            ArrayList<MarkerInfo> markers = new ArrayList<>();
+            for(LinkedHashMap<String, Object>data:json){
+                MarkerInfo a =new MarkerInfo();
+                a.setTrackId(new Long((Integer)data.get("trackId")));
+                a.setTrackName((String)data.get("trackName"));
+                LinkedHashMap<String, Double> position = (LinkedHashMap)data.get("position");
+                a.setPosition(new LatLng(position.get("latitude"), position.get("longitude")));
+                markers.add(a);
+            }
+            return markers;
+        }
+
+        /*
+            po zakończeniu pobierania danych z serwera wykonuje się ta metoda, jej parametrem jest lista z danymi
+            metoda porównuje znaczniki z serwera z tymi obecnie wyświetlanymi, usuwa z listy te, które już nie są wyświetlane
+            dodaje na mapę znaczniki, których jeszcze nie ma
+            Lista pobrana z serwera zawsze zawiera wszystkie znaczniki, które aktualnie powinny być wyświetlane
+            porównuję je z tymi obecnie wyświetlanymi żeby nie tworzyć za każdym razem nie potrzebnie tych samych, które już są wyświetlane
+         */
+        @Override
+        protected void onPostExecute(List<MarkerInfo> newMarkers){
+            for(MarkerInfo marker:currentlyVisibleMarkers){
+                if(newMarkers.contains(marker)){
+                    newMarkers.remove(marker);
+                }
+                else{
+                    currentlyVisibleMarkers.remove(marker);
+                }
+            }
+            currentlyVisibleMarkers.addAll(newMarkers);
+            for(MarkerInfo marker:newMarkers){
+                Marker m =map.addMarker(new MarkerOptions()
+                        .position(marker.getPosition())
+                        .title(marker.getTrackName()));
+                m.setTag(marker.getTrackId());
+            }
+        }
     }
 }

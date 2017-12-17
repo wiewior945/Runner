@@ -26,7 +26,6 @@ public class Track implements Parcelable{
     private String startDescription;
     private String finishDescription;
     private String name;
-    private String time;
 
     public Track(User user){
         this.user=user;
@@ -102,12 +101,6 @@ public class Track implements Parcelable{
     public void setName(String name) {
         this.name = name;
     }
-    public String getTime() {
-        return time;
-    }
-    public void setTime(String time) {
-        this.time = time;
-    }
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
@@ -126,7 +119,6 @@ public class Track implements Parcelable{
         startDescription = in.readString();
         finishDescription = in.readString();
         name = in.readString();
-        time = in.readString();
     }
 
     @Override
@@ -143,7 +135,6 @@ public class Track implements Parcelable{
         dest.writeString(startDescription);
         dest.writeString(finishDescription);
         dest.writeString(name);
-        dest.writeString(time);
     }
 
     @Override

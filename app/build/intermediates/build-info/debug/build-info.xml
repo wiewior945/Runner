@@ -5,27 +5,35 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="METHOD_DELETED"
     plugin-version="3.0.0"
-    timestamp="1511895268679"
+    timestamp="1513448133041"
     token="-1875295342825606788"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="363" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="48" />
     <task
         name="verifier"
-        duration="0" />
+        duration="10" />
+
+    <artifact
+        location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\workspace\Runner\app\build\outputs\apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1511893939110"
+        timestamp="1513443186086"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -49,10 +57,10 @@
             location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -66,8 +74,8 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1511895107375"
+        ir-eligibility="METHOD_DELETED"
+        timestamp="1513448133041"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\workspace\Runner\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -76,9 +84,5 @@
             location="D:\workspace\Runner\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1511895268679"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

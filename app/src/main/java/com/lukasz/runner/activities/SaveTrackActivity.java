@@ -16,6 +16,7 @@ import com.lukasz.runner.R;
 import com.lukasz.runner.Utilities;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.Track;
+import com.lukasz.runner.entities.TrackTime;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -31,15 +32,18 @@ import java.util.concurrent.TimeoutException;
 public class SaveTrackActivity extends Activity implements View.OnTouchListener, View.OnClickListener{
 
     private Track track;
+    private TrackTime trackTime;
     private TextView timeTextView;
     private EditText nameEditText, startDescriptionEditText, finishDescriptionEditText;
     private Dialog trackSavedDialog;
+    private Activity thisActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_track_activity);
         track = getIntent().getExtras().getParcelable("track");
+        trackTime = getIntent().getExtras().getParcelable("trackTime");
         timeTextView = (TextView)findViewById(R.id.saveTrackTimeTextView);
         startDescriptionEditText = (EditText)findViewById(R.id.saveTrackStartDescriptionEditText);
         finishDescriptionEditText = (EditText)findViewById(R.id.saveTrackFinishDescriptionEditText);
@@ -50,7 +54,7 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
     @Override
     protected void onStart(){
         super.onStart();
-        timeTextView.setText("Twój czas: "+track.getTime());
+        timeTextView.setText("Twój czas: "+trackTime.getTime());
     }
 
     public void cancelTrackSave(View view){
@@ -73,7 +77,7 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
             if(connectivityManager != null && connectivityManager.getActiveNetworkInfo() != null) {
                 SaveTrack asyncTask = new SaveTrack();
                 asyncTask.execute(track);
-                Boolean isCreated = asyncTask.get(5, TimeUnit.SECONDS);
+                Boolean isCreated = asyncTask.get(15, TimeUnit.SECONDS);
                 if(isCreated){
                     trackSavedDialog = InfoDialog.showOkDialog(this, "Pomyślnie zapisano trasę", this);
                 }
@@ -115,15 +119,23 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
     }
 
 
+    //zapisuje trasę. Jeśli zapis trsy się powiedzie to zaczyna zapisywać jej czas
     private class SaveTrack extends AsyncTask<Track, Void, Boolean>{
 
         @Override
         protected Boolean doInBackground(Track... params) {
-            String url = getString(R.string.server)+getString(R.string.ws_save_track);
+            String trackUrl = getString(R.string.server)+getString(R.string.ws_save_track);
+            String timeTrackUrl = getString(R.string.server)+getString(R.string.ws_save_track_time);
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            Boolean isSaved = restTemplate.postForObject(url, params[0], Boolean.class);
-            return isSaved;
+            Long trackId = restTemplate.postForObject(trackUrl, params[0], Long.class);
+            trackTime.getTrack().setId(trackId);
+            if(trackId!=null){
+                Boolean isSaved = restTemplate.postForObject(timeTrackUrl, params[0], Boolean.class);
+                return isSaved;
+                //TODO: wymazać trasę na baie jeśli zapis czasu się nie powiedzie
+            }
+            return false;
         }
     }
 }

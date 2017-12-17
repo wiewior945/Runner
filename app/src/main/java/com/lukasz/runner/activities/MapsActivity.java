@@ -27,10 +27,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.lukasz.runner.MarkerInfoWindow;
 import com.lukasz.runner.R;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.MarkerInfo;
 import com.lukasz.runner.entities.Track;
+import com.lukasz.runner.entities.TrackTime;
 import com.lukasz.runner.entities.User;
 import com.lukasz.runner.services.GpsService;
 import com.lukasz.runner.services.GpsService.CreateBinder;
@@ -39,6 +41,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -57,6 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<MarkerInfo> currentlyVisibleMarkers = new ArrayList<>();
     private boolean trackingFlag=true;  //czy mapa ma podążać za znacznikiem (obecnym  miejscem)
     private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         map = googleMap;
         map.setOnCameraIdleListener(this);
         map.setMyLocationEnabled(true);
+        map.setInfoWindowAdapter(new MarkerInfoWindow(this));
         map.getUiSettings().setCompassEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk googla do namierzania obecnej lokalizacji
         map.animateCamera(CameraUpdateFactory.newLatLng(warsaw));
@@ -154,9 +159,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         hideTrackButtons();
         Track track = gpsService.saveTrack();
         if(track!=null){                        // jeśli jest nullem w GPS service wyświetlany jest komunikat o braku ruchu
-            track.setTime(timerTextView.getText().toString());
+            TrackTime trackTime = new TrackTime(user, track, track.getDateCreated(), timerTextView.getText().toString());
             Intent intent = new Intent(this, SaveTrackActivity.class);
             intent.putExtra("track", track);
+            intent.putExtra("trackTime", trackTime);
             startActivity(intent);
         }
         timerTextView.setText("00:00");
@@ -328,12 +334,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          */
         @Override
         protected void onPostExecute(List<MarkerInfo> newMarkers){
-            for(MarkerInfo marker:currentlyVisibleMarkers){
-                if(newMarkers.contains(marker)){
-                    newMarkers.remove(marker);
+            Iterator<MarkerInfo> iterator = currentlyVisibleMarkers.iterator();
+            while(iterator.hasNext()){
+                if(newMarkers.contains(iterator.next())){
+                    newMarkers.remove(iterator.next());
                 }
                 else{
-                    currentlyVisibleMarkers.remove(marker);
+                    iterator.remove();
                 }
             }
             currentlyVisibleMarkers.addAll(newMarkers);

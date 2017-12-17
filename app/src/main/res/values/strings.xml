@@ -7,6 +7,7 @@
     <string name="ws_register">/Runner/webservice/register</string>
     <string name="ws_save_track">/Runner/webservice/saveTrack</string>
     <string name="ws_update_track_markers">/Runner/webservice/updateTracksMarkers</string>
+    <string name="ws_save_track_time">/Runner/webservice/saveTrackTime</string>
 
     <string name="username">Login</string>
     <string name="username2">Nazwa użytkownika</string>
@@ -28,4 +29,6 @@
     <string name="start_hint">Krótko opisz cechy miejsca z którego startowałeś. To pomoże użytkownikom znaleźć punkt startu</string>
     <string name="finish_hint">Krótko opisz cechy miejsca z którego startowałeś. To pomoże użytkownikom znaleźć metę</string>
     <string name="empty_field_warning">To pole nie może zostać putse!</string>
+    <string name="best_time">Najlpeszy czas:</string>
+    <string name="track_lenght">Długość:</string>
 </resources>

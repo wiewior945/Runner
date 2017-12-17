@@ -1,4 +1,4 @@
-#Tue Nov 28 19:51:48 CET 2017
+#Sat Dec 16 19:15:35 CET 2017
 base.0=D\:\\workspace\\Runner\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
 renamed.0=classes.dex
 file.0=D\:\\workspace\\Runner\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6\\classes.dex

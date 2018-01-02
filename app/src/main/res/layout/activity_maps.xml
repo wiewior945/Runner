@@ -25,6 +25,34 @@
             android:textColor="@android:color/white"
             android:text="00:00"
             android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/navigateButton"
+                android:background="@drawable/navigate"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/trackTimesButton"
+                android:background="@drawable/stopwatch"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/showFinishForTrackButton"
+                android:background="@drawable/grey_finish_icon"
+                android:visibility="gone"
+                android:onClick="showFinish"/>
+        </LinearLayout>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"

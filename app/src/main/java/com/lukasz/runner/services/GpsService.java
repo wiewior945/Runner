@@ -30,6 +30,7 @@ import com.lukasz.runner.Utilities;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
 import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.activities.MapsActivity;
+import com.lukasz.runner.entities.TrackTime;
 import com.lukasz.runner.entities.User;
 
 /**
@@ -44,7 +45,7 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest locationRequest;
     private MapsActivity mapsActivity;
-    private Track track;
+    private TrackTime trackTime;
     private boolean recordTrack = false;
 
 
@@ -135,26 +136,26 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
 //    }
 
     public void newTrack(User user){
-        track = new Track(user);
+        trackTime = new TrackTime(user);
     }
 
-    //jeśli nie zapisani żadnego punktu (zmiany położenia) nie ma co zapisywac trasy i zwra nulla
-    public Track saveTrack(){
+    //jeśli nie zapisano żadnego punktu (zmiany położenia) nie ma co zapisywac trasy i zwra nulla
+    public TrackTime saveTrack(){
         recordTrack=false;
-        Track tempTrack;
-        if(track.endTrack()){
-            tempTrack = track;
+        TrackTime tempTrackTime;
+        if(!trackTime.getLatitude().isEmpty()){
+            tempTrackTime = trackTime;
         }else{
-            tempTrack=null;
+            tempTrackTime=null;
             InfoDialog.showOkDialog(mapsActivity, "Nie zanotowano żadnej zmiany położenia. Sprawdź ustawienia GPS lub rusz tyłek!.");
         }
-        track = null;
-        return tempTrack;
+        trackTime = null;
+        return tempTrackTime;
     }
 
     public void cancelTrack(){
         recordTrack=false;
-        track=null;
+        trackTime=null;
     }
 
     @Override
@@ -162,7 +163,7 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
         mapsActivity.setGpsFlag(true);
         mapsActivity.centerMap(location.getLatitude(), location.getLongitude());
         if(recordTrack){
-            track.addCoords(location.getLatitude(), location.getLongitude());
+            trackTime.addCoords(location.getLatitude(), location.getLongitude());
         }
         System.out.println("@@@   "+location.getLatitude()+"   "+location.getLongitude());
     }
@@ -171,4 +172,5 @@ public class GpsService extends Service implements GoogleApiClient.ConnectionCal
     public void setRecordTrack(boolean bool){
         recordTrack=bool;
     }
+    public boolean getRecordTrack(){return recordTrack;}
 }

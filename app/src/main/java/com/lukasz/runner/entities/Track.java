@@ -1,5 +1,6 @@
 package com.lukasz.runner.entities;
 
+import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -13,58 +14,29 @@ import java.util.List;
 
 public class Track implements Parcelable{
 
-
-
+    //jakie kolwiek zmiany pól trzeba dodać w MapsActivity, tam jest mapowanie podczas pobierania markerów
     //wprowadzać zmiany w Parclable!!!
     private Long id=0L;
     private User user;
-    private List<Double> latitude = new ArrayList<>();
-    private List<Double> longitude = new ArrayList<>();
     private Double startLatitude, startLongitude;
     private Double endLatitude, endLongitude;
-    private Date dateCreated = new Date();
+    private Date dateCreated;
     private String startDescription;
     private String finishDescription;
     private String name;
+    private int distance;
 
-    public Track(User user){
-        this.user=user;
-    }
+    public Track(){};
 
 
-    public void addCoords(Double lat, Double lng){
-        latitude.add(lat);
-        longitude.add(lng);
-    }
-
-    public boolean endTrack(){
-        try{
-            startLatitude = latitude.get(0);
-            startLongitude = longitude.get(0);
-            endLatitude = latitude.get(latitude.size()-1);
-            endLongitude = longitude.get(longitude.size()-1);
-            return true;
-        }
-        catch(IndexOutOfBoundsException e){
-            return false;
-        }
-
+    public void calculateDistance(){
+        float[] distanceResults = new float[10];
+        Location.distanceBetween(startLatitude, startLongitude, endLatitude, endLongitude, distanceResults);
+        distance = Math.round(distanceResults[0]);
     }
 
 
 
-    public void setLatitude(List<Double> latitude){
-        this.latitude = latitude;
-    }
-    public List<Double> getLatitude(){
-        return latitude;
-    }
-    public void setLongitude(List<Double> longitude){
-        this.longitude = longitude;
-    }
-    public List<Double> getLongitude(){
-        return longitude;
-    }
     public void setDateCreated(Date date){
         dateCreated = date;
     }
@@ -103,14 +75,15 @@ public class Track implements Parcelable{
     }
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
+    public int getDistance() {return distance;}
+    public void setDistance(int distance) {this.distance = distance;}
+
 
     //----------------------  PARCELABLE ------------------------------------
     public Track(Parcel in){ //zachować kolejność z writeToParcel
         final ClassLoader cl = getClass().getClassLoader();
         id=in.readLong();
         user = (User)in.readValue(cl);
-        in.readList(latitude, cl);
-        in.readList(longitude, cl);
         startLatitude = in.readDouble();
         startLongitude = in.readDouble();
         endLatitude = in.readDouble();
@@ -119,14 +92,13 @@ public class Track implements Parcelable{
         startDescription = in.readString();
         finishDescription = in.readString();
         name = in.readString();
+        distance = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
         dest.writeValue(user);
-        dest.writeList(latitude);
-        dest.writeList(longitude);
         dest.writeDouble(startLatitude);
         dest.writeDouble(startLongitude);
         dest.writeDouble(endLatitude);
@@ -135,6 +107,7 @@ public class Track implements Parcelable{
         dest.writeString(startDescription);
         dest.writeString(finishDescription);
         dest.writeString(name);
+        dest.writeInt(distance);
     }
 
     @Override

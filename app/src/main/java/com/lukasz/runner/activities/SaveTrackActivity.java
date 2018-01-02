@@ -3,6 +3,7 @@ package com.lukasz.runner.activities;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,19 +37,20 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
     private TextView timeTextView;
     private EditText nameEditText, startDescriptionEditText, finishDescriptionEditText;
     private Dialog trackSavedDialog;
-    private Activity thisActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_track_activity);
-        track = getIntent().getExtras().getParcelable("track");
+        track = new Track();
         trackTime = getIntent().getExtras().getParcelable("trackTime");
+        trackTime.setTrack(track);
         timeTextView = (TextView)findViewById(R.id.saveTrackTimeTextView);
         startDescriptionEditText = (EditText)findViewById(R.id.saveTrackStartDescriptionEditText);
         finishDescriptionEditText = (EditText)findViewById(R.id.saveTrackFinishDescriptionEditText);
         nameEditText = (EditText)findViewById(R.id.saveTrackNameEditText);
         nameEditText.setOnTouchListener(this);
+        setTrackStartEndAndDistance();
     }
 
     @Override
@@ -71,6 +73,8 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
         track.setName(trackName);
         track.setStartDescription(startDescriptionEditText.getText().toString());
         track.setFinishDescription(finishDescriptionEditText.getText().toString());
+        track.setUser(trackTime.getUser());
+        track.setDateCreated(trackTime.getDate());
         try{
             Utilities.requestInternetPermissions(this);
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -118,6 +122,14 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
         finish();
     }
 
+    private void setTrackStartEndAndDistance(){
+        track.setStartLatitude(trackTime.getLatitude().get(0));
+        track.setStartLongitude(trackTime.getLongitude().get(0));
+        track.setEndLatitude(trackTime.getLatitude().get(trackTime.getLatitude().size()-1));
+        track.setEndLongitude(trackTime.getLongitude().get(trackTime.getLongitude().size()-1));
+        track.calculateDistance();
+    }
+
 
     //zapisuje trasę. Jeśli zapis trsy się powiedzie to zaczyna zapisywać jej czas
     private class SaveTrack extends AsyncTask<Track, Void, Boolean>{
@@ -129,9 +141,9 @@ public class SaveTrackActivity extends Activity implements View.OnTouchListener,
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
             Long trackId = restTemplate.postForObject(trackUrl, params[0], Long.class);
-            trackTime.getTrack().setId(trackId);
             if(trackId!=null){
-                Boolean isSaved = restTemplate.postForObject(timeTrackUrl, params[0], Boolean.class);
+                trackTime.getTrack().setId(trackId);
+                Boolean isSaved = restTemplate.postForObject(timeTrackUrl, trackTime, Boolean.class);
                 return isSaved;
                 //TODO: wymazać trasę na baie jeśli zapis czasu się nie powiedzie
             }

@@ -2,6 +2,7 @@ package com.lukasz.runner.activities;
 
 import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.AsyncTask;
@@ -9,7 +10,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.app.INotificationSideChannel;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -24,13 +24,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.lukasz.runner.MarkerInfoWindow;
 import com.lukasz.runner.R;
 import com.lukasz.runner.com.lukasz.runner.dialogs.InfoDialog;
-import com.lukasz.runner.entities.MarkerInfo;
 import com.lukasz.runner.entities.Track;
 import com.lukasz.runner.entities.TrackTime;
 import com.lukasz.runner.entities.User;
@@ -41,25 +41,30 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowCloseListener{
 
     private GoogleMap map;
     private DrawerLayout drawerMenu;
     private LinearLayout menu;
     private Button newTrackButton, cancelTrackButton, endTruckTextButton;
-    private ImageView endTrackButton, centerMapButton;
+    private ImageView endTrackButton, centerMapButton, navigateButton, trackTimesButton,showFinishForTackButton;
     private TextView timerTextView;
     private GpsService gpsService;
     private User user;
     private Handler handler = new Handler();
     private Runnable trackTimer;
-    private List<MarkerInfo> currentlyVisibleMarkers = new ArrayList<>();
+    private List<Marker> currentlyVisibleMarkers = new ArrayList<>();
+    private Marker selectedMarker;
+    private Marker finishMarker;
     private boolean trackingFlag=true;  //czy mapa ma podążać za znacznikiem (obecnym  miejscem)
     private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
+    private boolean isFinishShowed=false;   //czy pokazywane jest marker z metą trasy
+    private boolean downloadTracks=true;    //czy trasy mają być pobierane z serwera i wrzucane na mapę jako markery
 
 
     @Override
@@ -74,6 +79,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         endTrackButton=(ImageView) findViewById(R.id.endTrackingButton);
         timerTextView=(TextView) findViewById(R.id.timerTextView);
         centerMapButton=(ImageView) findViewById(R.id.gpsCenterButtosn);
+        navigateButton=(ImageView) findViewById(R.id.navigateButton);
+        trackTimesButton=(ImageView) findViewById(R.id.trackTimesButton);
+        showFinishForTackButton=(ImageView) findViewById(R.id.showFinishForTrackButton);
         SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
@@ -86,24 +94,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        LatLng warsaw = new LatLng(52.23, 21.006);
-        map = googleMap;
-        map.setOnCameraIdleListener(this);
-        map.setMyLocationEnabled(true);
-        map.setInfoWindowAdapter(new MarkerInfoWindow(this));
-        map.getUiSettings().setCompassEnabled(true);
-        map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk googla do namierzania obecnej lokalizacji
-        map.animateCamera(CameraUpdateFactory.newLatLng(warsaw));
-        map.animateCamera(CameraUpdateFactory.zoomTo(15));
-    }
-
-    @Override
     public void onResume(){
         super.onResume();
-//        if(gpsService!=null){ // przy starcie aplikacji gpsService jest nullem. To uruchamia listener gdy podczss działania aplikacji ktoś wyłączy gps
-//            gpsService.startLocationListening();
-//        }
     }
 
 
@@ -123,16 +115,60 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     };
 
+
+    //================================== INTERFACES ===================================
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        LatLng warsaw = new LatLng(52.23, 21.006);
+        map = googleMap;
+        map.setOnCameraIdleListener(this);
+        map.setMyLocationEnabled(true);
+        map.setInfoWindowAdapter(new MarkerInfoWindow(this));
+        map.setOnMarkerClickListener(this);
+        map.setOnInfoWindowCloseListener(this);
+        map.getUiSettings().setCompassEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(false); //ukrywa domyślny przycisk googla do namierzania obecnej lokalizacji
+        map.getUiSettings().setMapToolbarEnabled(false);    //po naciśnięciu Marker'a pojawiają się googlowe przyciski, to je wyłącza
+        map.animateCamera(CameraUpdateFactory.newLatLng(warsaw));
+        map.animateCamera(CameraUpdateFactory.zoomTo(15));
+    }
+
     //liestener obsługujący poruszanie się mapy, ładuje trasy gdy mapa zostanie przesunięta
+    // gdy tworzona jest nowa trasa nie wyświetla markerów
     @Override
     public void onCameraIdle() {
+        if(!gpsService.getRecordTrack() && downloadTracks){
             LatLng rightBottom = map.getProjection().getVisibleRegion().nearRight;
             LatLng leftTop = map.getProjection().getVisibleRegion().farLeft;
             new UpdateTracksOnMap().execute(leftTop,rightBottom);
+        }
     }
 
-    //=========================================  PRZYCISKI  =========================================================
+    //pokazuje przyciski po nacisnieciu markera
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        hideFinishMarker();
+        selectedMarker = marker;
+        navigateButton.setVisibility(View.VISIBLE);
+        trackTimesButton.setVisibility(View.VISIBLE);
+        showFinishForTackButton.setVisibility(View.VISIBLE);
+        return false;
+    }
 
+    //ukrywa przyciski pojawiajace sie po nacisnieciu markera
+    @Override
+    public void onInfoWindowClose(Marker marker) {
+        hideFinishMarker();
+        selectedMarker = null;
+        navigateButton.setVisibility(View.GONE);
+        trackTimesButton.setVisibility(View.GONE);
+        showFinishForTackButton.setVisibility(View.GONE);
+    }
+    //===========================================
+
+
+
+    //=========================================  PRZYCISKI  =========================================================
     //otweira boczne menu i przypisuje activity w service
     public void openMenu(View view) {
         drawerMenu.openDrawer(menu);
@@ -157,11 +193,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         handler.removeCallbacks(trackTimer);
         drawerMenu.closeDrawer(Gravity.LEFT);
         hideTrackButtons();
-        Track track = gpsService.saveTrack();
-        if(track!=null){                        // jeśli jest nullem w GPS service wyświetlany jest komunikat o braku ruchu
-            TrackTime trackTime = new TrackTime(user, track, track.getDateCreated(), timerTextView.getText().toString());
+        TrackTime trackTime = gpsService.saveTrack();
+        if(trackTime!=null){                        // jeśli jest nullem w GPS service wyświetlany jest komunikat o braku ruchu
+            trackTime.setTime(timerTextView.getText().toString());
             Intent intent = new Intent(this, SaveTrackActivity.class);
-            intent.putExtra("track", track);
             intent.putExtra("trackTime", trackTime);
             startActivity(intent);
         }
@@ -203,6 +238,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             gpsService.startLocationListening();
         }
     }
+
+    public void showFinish(View view){
+        if(!isFinishShowed){
+            isFinishShowed=true;
+            downloadTracks=false;
+            hideMarkers(selectedMarker);
+            Track track = (Track) selectedMarker.getTag();
+            finishMarker = map.addMarker(new MarkerOptions()
+                    .position(new LatLng(track.getEndLatitude(), track.getEndLongitude()))
+                    .title(track.getName())
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+            finishMarker.setTag(track);
+            showFinishForTackButton.setBackground(ContextCompat.getDrawable(this, R.drawable.finish_icon));
+        }
+        else{
+           hideFinishMarker();
+           downloadTracks=true;
+        }
+
+
+    }
     //==================================================================================================================
 
     private void hideTrackButtons(){
@@ -212,6 +268,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         endTruckTextButton.setVisibility(View.GONE);
         endTrackButton.setVisibility(View.GONE);
         timerTextView.setVisibility(View.GONE);
+    }
+
+    // ukrywa wszystkie widoczne markery zostawiając tylko ten podany w parametrze, podając nulla ukrywa wszystkie
+    private void hideMarkers(Marker marker){
+        Long markerId = ((Track)marker.getTag()).getId();
+        for(Marker m : currentlyVisibleMarkers){
+            if(!markerId.equals(((Track)m.getTag()).getId())){
+                System.out.println(m.isVisible());
+                m.setVisible(false);
+                System.out.println(m.isVisible());
+            }
+        }
+    }
+
+    private void showHiddenMarkers(){
+        for(Marker m : currentlyVisibleMarkers){
+            m.setVisible(true);
+        }
+    }
+
+
+    //jeśli wyświetlany jest marker pokazujący metę metoda usuwa go
+    private void hideFinishMarker(){
+        if(isFinishShowed){
+            isFinishShowed=false;
+            finishMarker.remove();
+            showFinishForTackButton.setBackground(ContextCompat.getDrawable(this, R.drawable.grey_finish_icon));
+            showHiddenMarkers();
+        }
     }
 
     /*
@@ -237,6 +322,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             map.animateCamera(updatedLocation);
         }
     }
+
 
     //=============================================  TIMERY  ===========================================================
     private class CountDown implements Runnable{
@@ -302,10 +388,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //---------------------------------------------------------------------------------------------------------------------------
     //pobiera pozycję znaczników na mapie dla widocznego obszaru i dodaje je na mapę
-    private class UpdateTracksOnMap extends AsyncTask<LatLng, Void, List<MarkerInfo>>{
+    private class UpdateTracksOnMap extends AsyncTask<LatLng, Void, List<Track>>{
 
         @Override
-        protected List<MarkerInfo> doInBackground(LatLng... corners) {
+        protected List<Track> doInBackground(LatLng... corners) {
             String url = getString(R.string.server)+getString(R.string.ws_update_track_markers);
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -313,14 +399,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
              *  dlatego ta pętla leci po wszystkich danych z serwera i tworzy z nich ArrayListę obiektów
              */
             List<LinkedHashMap> json = (List<LinkedHashMap>) restTemplate.postForObject(url, corners, List.class);
-            ArrayList<MarkerInfo> markers = new ArrayList<>();
+            ArrayList<Track> markers = new ArrayList<>();
             for(LinkedHashMap<String, Object>data:json){
-                MarkerInfo a =new MarkerInfo();
-                a.setTrackId(new Long((Integer)data.get("trackId")));
-                a.setTrackName((String)data.get("trackName"));
-                LinkedHashMap<String, Double> position = (LinkedHashMap)data.get("position");
-                a.setPosition(new LatLng(position.get("latitude"), position.get("longitude")));
-                markers.add(a);
+                Track track =new Track();
+                track.setId(new Long((Integer)data.get("id")));
+                track.setName((String)data.get("name"));
+                track.setStartLatitude((Double)data.get("startLatitude"));
+                track.setStartLongitude((Double)data.get("startLongitude"));
+                track.setEndLatitude((Double)data.get("endLatitude"));
+                track.setEndLongitude((Double)data.get("endLongitude"));
+                track.setDateCreated(new Date((Long)data.get("dateCreated"))); //z serwera dostaje milisekundy
+                track.setStartDescription((String)data.get("startDescription"));
+                track.setFinishDescription((String)data.get("finishDescription"));
+                track.setDistance((Integer) data.get("distance"));
+                markers.add(track);
             }
             return markers;
         }
@@ -333,22 +425,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             porównuję je z tymi obecnie wyświetlanymi żeby nie tworzyć za każdym razem nie potrzebnie tych samych, które już są wyświetlane
          */
         @Override
-        protected void onPostExecute(List<MarkerInfo> newMarkers){
-            Iterator<MarkerInfo> iterator = currentlyVisibleMarkers.iterator();
+        protected void onPostExecute(List<Track> newMarkers){
+            Iterator<Marker> iterator = currentlyVisibleMarkers.iterator();
             while(iterator.hasNext()){
-                if(newMarkers.contains(iterator.next())){
-                    newMarkers.remove(iterator.next());
+                if(newMarkers.contains(iterator.next().getTag())){
+                    newMarkers.remove(iterator.next().getTag());
                 }
                 else{
                     iterator.remove();
                 }
             }
-            currentlyVisibleMarkers.addAll(newMarkers);
-            for(MarkerInfo marker:newMarkers){
+            for(Track track:newMarkers){
                 Marker m =map.addMarker(new MarkerOptions()
-                        .position(marker.getPosition())
-                        .title(marker.getTrackName()));
-                m.setTag(marker.getTrackId());
+                        .position(new LatLng(track.getStartLatitude(), track.getStartLongitude()))
+                        .title(track.getName()));
+                m.setTag(track);
+                currentlyVisibleMarkers.add(m);
             }
         }
     }

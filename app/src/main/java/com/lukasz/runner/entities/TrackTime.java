@@ -3,7 +3,9 @@ package com.lukasz.runner.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Lukasz on 2017-11-28.
@@ -11,18 +13,15 @@ import java.util.Date;
 
 public class TrackTime implements Parcelable{
 
-    public TrackTime(User user, Track track, Date date, String time){
-        this.user=user;
-        this.track=track;
-        this.date=date;
-        this.time=time;
-    }
+
 
     //zachować kolejność w Parcelable
     private User user;
     private Track track;
-    private Date date;
+    private Date date = new Date();
     private String time;
+    private List<Double> latitude = new ArrayList<>();
+    private List<Double> longitude = new ArrayList<>();
 
     public User getUser() {
         return user;
@@ -48,7 +47,29 @@ public class TrackTime implements Parcelable{
     public void setTime(String time) {
         this.time = time;
     }
+    public void setLatitude(List<Double> latitude){
+        this.latitude = latitude;
+    }
+    public List<Double> getLatitude(){
+        return latitude;
+    }
+    public void setLongitude(List<Double> longitude){
+        this.longitude = longitude;
+    }
+    public List<Double> getLongitude(){
+        return longitude;
+    }
 
+
+    public TrackTime (User user){
+        this.user=user;
+    }
+
+
+    public void addCoords(Double lat, Double lng){
+        latitude.add(lat);
+        longitude.add(lng);
+    }
 
 
 //--------------------------PARCELABLE------------------------
@@ -60,6 +81,8 @@ public class TrackTime implements Parcelable{
         track = (Track) in.readValue(cl);
         date = (Date) in.readValue(cl);
         time = in.readString();
+        in.readList(latitude, cl);
+        in.readList(longitude, cl);
     }
 
     @Override
@@ -68,6 +91,8 @@ public class TrackTime implements Parcelable{
         dest.writeValue(track);
         dest.writeValue(date);
         dest.writeString(time);
+        dest.writeList(latitude);
+        dest.writeList(longitude);
     }
 
     @Override

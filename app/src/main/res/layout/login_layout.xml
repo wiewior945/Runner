@@ -18,7 +18,9 @@
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:textColor="@color/darkOrange"
-        android:textColorHint="@color/lightOrange" />
+        android:textColorHint="@color/lightOrange"
+        android:textColorHighlight="@color/darkOrange"
+        />
 
     <EditText
         android:id="@+id/passwordInput"
@@ -34,7 +36,8 @@
         android:inputType="textPassword"
         android:fontFamily="sans-serif"
         android:textColor="@color/darkOrange"
-        android:textColorHint="@color/lightOrange" />
+        android:textColorHint="@color/lightOrange"
+        />
 
     <Button
         android:id="@+id/loginButton"
@@ -64,6 +67,6 @@
         android:text="@string/create_new_account"
         android:textAlignment="center"
         android:textColor="@color/darkOrange"
-        android:onClick="goToRegisterWindow"/>
+        android:onClick="goToRegisterWindow" />
 
 </RelativeLayout>

@@ -14,7 +14,8 @@
         android:textColor="#E67E22"
         android:textColorHint="#ffb472"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColorLink="@color/darkOrange"/>
 
     <EditText
         android:id="@+id/passwordInput"
@@ -28,7 +29,8 @@
         android:hint="Hasło"
         android:inputType="textPassword"
         android:textColor="#E67E22"
-        android:textColorHint="#ffb472" />
+        android:textColorHint="#ffb472"
+        android:textColorLink="@color/darkOrange"/>
 
     <Button
         android:id="@+id/loginButton"

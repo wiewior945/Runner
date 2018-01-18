@@ -37,7 +37,8 @@
                 android:layout_marginBottom="10dp"
                 android:id="@+id/navigateButton"
                 android:background="@drawable/navigate"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:onClick="navigateButton"/>
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"

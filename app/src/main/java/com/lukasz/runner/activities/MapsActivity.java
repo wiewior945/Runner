@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
@@ -84,7 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         showFinishForTackButton=(ImageView) findViewById(R.id.showFinishForTrackButton);
         SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
-
+        
         Intent intent = new Intent(this, GpsService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
@@ -144,9 +145,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    //pokazuje przyciski po nacisnieciu markera
+    // pokazuje przyciski po nacisnieciu markera
+    // markery mapy nie mają Track zapisanej w Tag markera
+    // jeśli kliknięty zostanie marker mety nic sie nie dzieje
     @Override
     public boolean onMarkerClick(Marker marker) {
+        System.out.print("----------- "+marker.getTag());
+        if(marker.getTag() == null){
+            return true;
+        }
         hideFinishMarker();
         selectedMarker = marker;
         navigateButton.setVisibility(View.VISIBLE);
@@ -158,7 +165,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //ukrywa przyciski pojawiajace sie po nacisnieciu markera
     @Override
     public void onInfoWindowClose(Marker marker) {
-        hideFinishMarker();
+        //hideFinishMarker();
         selectedMarker = null;
         navigateButton.setVisibility(View.GONE);
         trackTimesButton.setVisibility(View.GONE);
@@ -239,25 +246,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+
+    /*
+        pokazuje marker mety i wyśrodkowuje mapę, zatrzymuje wyśrodkowywanie mapy na pozycji użytkownika
+     */
     public void showFinish(View view){
-        if(!isFinishShowed){
-            isFinishShowed=true;
-            downloadTracks=false;
+        if(!isFinishShowed) {
+            isFinishShowed = true;
+            downloadTracks = false;
+            if(trackingFlag)trackingButton(null);
             hideMarkers(selectedMarker);
             Track track = (Track) selectedMarker.getTag();
             finishMarker = map.addMarker(new MarkerOptions()
                     .position(new LatLng(track.getEndLatitude(), track.getEndLongitude()))
                     .title(track.getName())
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-            finishMarker.setTag(track);
             showFinishForTackButton.setBackground(ContextCompat.getDrawable(this, R.drawable.finish_icon));
+            Double centerLat = null, centerLng = null;
+            if(track.getStartLatitude()>track.getEndLatitude()){
+                centerLat = track.getEndLatitude() + ((track.getStartLatitude() - track.getEndLatitude())/2);
+            }else{
+                centerLat = track.getStartLatitude() + ((track.getEndLatitude() - track.getStartLatitude())/2);
+            }
+            if(track.getStartLongitude()>track.getEndLongitude()){
+                centerLng = track.getEndLongitude() + ((track.getStartLongitude() - track.getEndLongitude())/2);
+            }else{
+                centerLng = track.getStartLongitude() + ((track.getEndLongitude() - track.getStartLongitude())/2);
+            }
+            CameraUpdate updatedLocation = CameraUpdateFactory.newLatLng(new LatLng(centerLat, centerLng));
+            map.animateCamera(updatedLocation);
         }
         else{
-           hideFinishMarker();
-           downloadTracks=true;
+            if(!trackingFlag) trackingButton(null);
+            hideFinishMarker();
+            downloadTracks=true;
         }
 
 
+    }
+
+    public void navigateButton(View view){
+        Track track = (Track) selectedMarker.getTag();
+        Uri destination = Uri.parse("google.navigation:q="+track.getStartLatitude().toString()+","+track.getStartLongitude().toString()+"&mode=w");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, destination);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
     //==================================================================================================================
 
@@ -275,9 +308,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Long markerId = ((Track)marker.getTag()).getId();
         for(Marker m : currentlyVisibleMarkers){
             if(!markerId.equals(((Track)m.getTag()).getId())){
-                System.out.println(m.isVisible());
                 m.setVisible(false);
-                System.out.println(m.isVisible());
             }
         }
     }
@@ -425,17 +456,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             porównuję je z tymi obecnie wyświetlanymi żeby nie tworzyć za każdym razem nie potrzebnie tych samych, które już są wyświetlane
          */
         @Override
-        protected void onPostExecute(List<Track> newMarkers){
-            Iterator<Marker> iterator = currentlyVisibleMarkers.iterator();
-            while(iterator.hasNext()){
-                if(newMarkers.contains(iterator.next().getTag())){
-                    newMarkers.remove(iterator.next().getTag());
+        protected void onPostExecute(List<Track> newMarkersList){
+            Iterator<Marker> visibleMarkers = currentlyVisibleMarkers.iterator();
+            Iterator<Track> newMarkers = newMarkersList.iterator();
+            while(visibleMarkers.hasNext()){
+                Track track = (Track)visibleMarkers.next().getTag();
+                boolean isRemoved = false;
+                while(newMarkers.hasNext()){
+                    if(newMarkers.next().getId().equals(track.getId())){
+                        newMarkers.remove();
+                        isRemoved = true;
+                        break;
+                    }
                 }
-                else{
-                    iterator.remove();
+                if(!isRemoved){
+                    visibleMarkers.remove();
                 }
             }
-            for(Track track:newMarkers){
+
+
+            for(Track track:newMarkersList){
                 Marker m =map.addMarker(new MarkerOptions()
                         .position(new LatLng(track.getStartLatitude(), track.getStartLongitude()))
                         .title(track.getName()));

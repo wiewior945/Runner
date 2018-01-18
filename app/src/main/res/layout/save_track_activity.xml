@@ -36,7 +36,8 @@
             android:textCursorDrawable="@color/darkOrange"
             android:textColorHint="@color/lightOrange"
             android:textColor="@color/darkOrange"
-            android:backgroundTint="@color/darkOrange"/>
+            android:backgroundTint="@color/darkOrange"
+            android:textColorLink="@color/darkOrange"/>
 
         <TextView
             android:id="@+id/saveTrackStartDescriptionTextView"
@@ -64,7 +65,8 @@
             android:textColor="@color/darkOrange"
             android:hint="@string/start_hint"
             android:inputType="textMultiLine"
-            android:textColorHint="@color/lightOrange"/>
+            android:textColorHint="@color/lightOrange"
+            android:textColorLink="@color/darkOrange"/>
 
         <TextView
             android:id="@+id/saveTrackFinishDescriptionTextView"
@@ -93,7 +95,8 @@
             android:hint="@string/finish_hint"
             android:inputType="textMultiLine"
             android:layout_alignParentEnd="true"
-            android:textColorHint="@color/lightOrange"/>
+            android:textColorHint="@color/lightOrange"
+            android:textColorLink="@color/darkOrange"/>
 
     <LinearLayout
         android:layout_width="match_parent"

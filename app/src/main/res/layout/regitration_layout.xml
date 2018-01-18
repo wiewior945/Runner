@@ -11,13 +11,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
+        android:backgroundTint="@color/darkOrange"
         android:ems="10"
         android:hint="@string/username2"
         android:inputType="textPersonName"
-        android:backgroundTint="@color/darkOrange"
-        android:textCursorDrawable="@color/darkOrange"
+        android:textColor="@color/darkOrange"
         android:textColorHint="@color/lightOrange"
-        android:textColor="@color/darkOrange" />
+        android:textCursorDrawable="@color/darkOrange" />
 
     <EditText
         android:id="@+id/registerPasswordInput"
@@ -33,7 +33,8 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="@color/darkOrange"
-        android:textColorHint="@color/lightOrange" />
+        android:textColorHint="@color/lightOrange"
+        android:textColorLink="@color/darkOrange"/>
 
     <EditText
         android:id="@+id/registerRepeatPasswordInput"
@@ -49,7 +50,8 @@
         android:hint="@string/repeat_password"
         android:inputType="textPassword"
         android:textColor="@color/darkOrange"
-        android:textColorHint="@color/lightOrange" />
+        android:textColorHint="@color/lightOrange"
+        android:textColorLink="@color/darkOrange"/>
 
     <Button
         android:id="@+id/registerButton"

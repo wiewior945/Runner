@@ -1,14 +1,20 @@
 package com.lukasz.runner.com.lukasz.runner.dialogs;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lukasz.runner.R;
+import com.lukasz.runner.activities.MapsActivity;
+
+import java.util.Map;
 
 /**
  * Created by Lukasz on 2017-09-05.
@@ -88,5 +94,34 @@ public class InfoDialog {
         cancelButton.setOnClickListener(listener);
         cancelButton.setTag(dialog);
         dialog.show();
+    }
+
+
+    public static void showTrackTimesDialog(MapsActivity mapsActivity,  Map<String, String> trackTimes){
+        AlertDialog.Builder builder = new AlertDialog.Builder(mapsActivity);
+        LayoutInflater inflater = mapsActivity.getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.track_times_dialog_layout, null));
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+        ImageView exit = (ImageView) dialog.findViewById(R.id.trackTimesDialogExitButton);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        TextView[] trackTimesTextArray = new TextView[5];
+        trackTimesTextArray[0] = (TextView) dialog.findViewById(R.id.firstTrackTimeText);
+        trackTimesTextArray[1] = (TextView) dialog.findViewById(R.id.secondTrackTimeText);
+        trackTimesTextArray[2] = (TextView) dialog.findViewById(R.id.thirdTrackTimeText);
+        trackTimesTextArray[3] = (TextView) dialog.findViewById(R.id.fourthTrackTimeText);
+        trackTimesTextArray[4] = (TextView) dialog.findViewById(R.id.fifthTrackTimeText);
+        String[] keys =  trackTimes.keySet().toArray(new String[trackTimes.size()]);
+        for(int i=0; i<trackTimes.size(); i++){
+            trackTimesTextArray[i].setOnClickListener(mapsActivity);
+            trackTimesTextArray[i].setText(trackTimes.get(keys[i]));
+            trackTimesTextArray[i].setHint(keys[i]);
+        }
     }
 }

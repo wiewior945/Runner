@@ -41,13 +41,20 @@ import com.lukasz.runner.services.GpsService.CreateBinder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowCloseListener{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowCloseListener, View.OnClickListener{
 
     private GoogleMap map;
     private DrawerLayout drawerMenu;
@@ -83,9 +90,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         navigateButton=(ImageView) findViewById(R.id.navigateButton);
         trackTimesButton=(ImageView) findViewById(R.id.trackTimesButton);
         showFinishForTackButton=(ImageView) findViewById(R.id.showFinishForTrackButton);
+
         SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
-        
+
         Intent intent = new Intent(this, GpsService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
@@ -171,7 +179,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         trackTimesButton.setVisibility(View.GONE);
         showFinishForTackButton.setVisibility(View.GONE);
     }
-    //===========================================
+
+    // obsługuje TextView z dialogu z czasami trasy
+    @Override
+    public void onClick(View view){
+        TextView textView = (TextView) view;
+        System.out.println(textView.getHint());
+    }
+    //==============================================================================================================
 
 
 
@@ -246,7 +261,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
     /*
         pokazuje marker mety i wyśrodkowuje mapę, zatrzymuje wyśrodkowywanie mapy na pozycji użytkownika
      */
@@ -291,6 +305,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, destination);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
+    }
+
+    public void trackTimesButton(View view){
+//        Map<Long, String> map = new LinkedHashMap<>();
+//        map.put(4L, "aaa");
+//        map.put(12L, "bbb");
+//        map.put(2L, "ccc");
+//        map.put(16L, "ddd");
+        try{
+            Track track = (Track) selectedMarker.getTag();
+            GetTrackTimes asyncTask = new GetTrackTimes();
+            asyncTask.execute(track.getId());
+            LinkedHashMap<String, String> map = asyncTask.get(5, TimeUnit.SECONDS);
+            InfoDialog.showTrackTimesDialog(this, map);
+        }catch(ExecutionException | InterruptedException ex){
+            ex.printStackTrace();
+        }catch(TimeoutException e){
+            e.printStackTrace();
+        }
     }
     //==================================================================================================================
 
@@ -482,6 +515,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 m.setTag(track);
                 currentlyVisibleMarkers.add(m);
             }
+        }
+    }
+
+
+    private class GetTrackTimes extends AsyncTask<Long, Void, LinkedHashMap<String, String>>{
+
+        @Override
+        protected LinkedHashMap<String, String> doInBackground(Long... longs) {
+            String url = getString(R.string.server) + getString(R.string.ws_get_five_best_track_times)+"?trackId="+longs[0].toString();
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+            LinkedHashMap<String, String> map = restTemplate.getForObject(url, LinkedHashMap.class);
+            return map;
         }
     }
 }

@@ -8,6 +8,7 @@
     <string name="ws_save_track">/Runner/webservice/saveTrack</string>
     <string name="ws_update_track_markers">/Runner/webservice/updateTracksMarkers</string>
     <string name="ws_save_track_time">/Runner/webservice/saveTrackTime</string>
+    <string name="ws_get_five_best_track_times">/Runner/webservice/getFiveBestTimesForTrack</string>
 
     <string name="username">Login</string>
     <string name="username2">Nazwa użytkownika</string>

@@ -54,6 +54,23 @@
                 android:background="@drawable/grey_finish_icon"
                 android:visibility="gone"
                 android:onClick="showFinish"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/startTrackButton"
+                android:background="@drawable/play"
+                android:visibility="gone"
+                android:onClick="startTrack"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/cancelRunButton"
+                android:background="@drawable/stop_tracking_icon"
+                android:visibility="gone"
+                android:onClick="cancelTracing"/>
         </LinearLayout>
         <ImageView
             android:layout_width="40dp"

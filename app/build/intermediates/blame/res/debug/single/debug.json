@@ -1084,6 +1084,10 @@
         "source": "C:\\Users\\Lukasz\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.2.0.aar\\b367a422f25be53dc5a7c7bf170b1711\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
+        "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable_play.png.flat",
+        "source": "D:\\workspace\\Runner\\app\\src\\main\\res\\drawable\\play.png"
+    },
+    {
         "merged": "D:\\workspace\\Runner\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Lukasz\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.2.0.aar\\b367a422f25be53dc5a7c7bf170b1711\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },

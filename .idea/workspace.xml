@@ -11,7 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449471fc-439f-44bb-8394-b3d3ecb6aad2" name="Default" comment="pierwszy commit: zalozenie projektu, pierwsza aktywnosc i layout">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/track_times_dialog_layout.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -31,20 +31,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/LoginActivity$CheckUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/LoginActivity$CheckUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$CountDown.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$CountDown.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/MapsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/RegisterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/RegisterActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/SaveTrackActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/activities/SaveTrackActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/android/support/v7/appcompat/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/android/gms/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/android/gms/R$id.class" />
@@ -57,27 +53,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/LoginActivity$CheckUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/LoginActivity$CheckUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$CountDown.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$CountDown.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/MapsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/RegisterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/RegisterActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/SaveTrackActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/activities/SaveTrackActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/KNQp7+RLP+ovPOAsmLalRLaZqZA=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/KNQp7+RLP+ovPOAsmLalRLaZqZA=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/debug/zip-cache/KNQp7+RLP+ovPOAsmLalRLaZqZA=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/debug/zip-cache/KNQp7+RLP+ovPOAsmLalRLaZqZA=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_maps.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_maps.xml.flat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_4.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_4.apk" />
@@ -95,21 +86,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/LoginActivity$CheckUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/LoginActivity$CheckUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$CountDown.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$CountDown.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/MapsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/RegisterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/RegisterActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/SaveTrackActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/activities/SaveTrackActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/36/com/lukasz/runner/services/GpsService.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/36/com/lukasz/runner/services/GpsService.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/v7/appcompat/R$id.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/v7/appcompat/R$id.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/39/com/google/android/gms/R$id.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/39/com/google/android/gms/R$id.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/MarkerInfoWindow.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/MarkerInfoWindow.dex" />
@@ -121,21 +109,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$string.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$string.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$style.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$style.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$styleable.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40/com/lukasz/runner/R$styleable.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/LoginActivity$CheckUser.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/LoginActivity$CheckUser.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/LoginActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/LoginActivity.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$1.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$2.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$CountDown.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$CountDown.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$TrackTimer.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$TrackTimer.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/MapsActivity.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/RegisterActivity$CreateUser.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/RegisterActivity$CreateUser.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/RegisterActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/RegisterActivity.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/SaveTrackActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41/com/lukasz/runner/activities/SaveTrackActivity.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/44/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/1/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/1/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/2/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/2/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/4/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/4/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/5/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/5/classes.dex" />
@@ -152,21 +137,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/LoginActivity$CheckUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/LoginActivity$CheckUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$CountDown.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$CountDown.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/MapsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/RegisterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/RegisterActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/SaveTrackActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/activities/SaveTrackActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/services/GpsService.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/lukasz/runner/services/GpsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/lukasz/runner/services/GpsService.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/lukasz/runner/services/GpsService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/android/support/v7/appcompat/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/google/android/gms/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/google/android/gms/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/MarkerInfoWindow.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/MarkerInfoWindow.class" />
@@ -178,28 +161,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/com/lukasz/runner/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/LoginActivity$CheckUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/LoginActivity$CheckUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$CountDown.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$CountDown.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$GetTrackTimes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$TrackTimer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity$UpdateTracksOnMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/MapsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/RegisterActivity$CreateUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/RegisterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/RegisterActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/SaveTrackActivity$SaveTrack.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/SaveTrackActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/lukasz/runner/activities/SaveTrackActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/lukasz/runner/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/lukasz/runner/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
@@ -220,12 +197,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/5/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/__content__.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="Runner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -276,22 +256,24 @@
       <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="319" column="32" lean-forward="false" selection-start-line="319" selection-start-column="32" selection-end-line="319" selection-end-column="32" />
+            <state relative-caret-position="2499">
+              <caret line="397" column="16" lean-forward="false" selection-start-line="397" selection-start-column="16" selection-end-line="397" selection-end-column="16" />
               <folding>
-                <element signature="class#4749:5195" expanded="false" />
+                <element signature="class#5006:5452" expanded="false" />
                 <element signature="method#onMapReady#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#onCameraIdle#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#onMarkerClick#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#onInfoWindowClose#0;class#MapsActivity#0" expanded="false" />
+                <element signature="method#onClick#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#newTrack#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#stopTracking#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#cancelTracing#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#trackingButton#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#showFinish#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#navigateButton#0;class#MapsActivity#0" expanded="false" />
+                <element signature="method#trackTimesButton#0;class#MapsActivity#0" expanded="false" />
+                <element signature="method#startTrack#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#hideTrackButtons#0;class#MapsActivity#0" expanded="false" />
-                <element signature="method#hideMarkers#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#showHiddenMarkers#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#hideFinishMarker#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#onActivityResult#0;class#MapsActivity#0" expanded="false" />
@@ -299,16 +281,40 @@
                 <element signature="class#CountDown#0;class#MapsActivity#0" expanded="false" />
                 <element signature="class#TrackTimer#0;class#MapsActivity#0" expanded="false" />
                 <element signature="class#UpdateTracksOnMap#0;class#MapsActivity#0" expanded="false" />
+                <element signature="class#GetTrackTimes#0;class#MapsActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InfoDialog.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java">
+      <file leaf-file-name="TrackTime.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/entities/TrackTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+            <state relative-caret-position="39">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_maps.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaveTrackActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/SaveTrackActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1292">
+              <caret line="102" column="9" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="102" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -321,9 +327,9 @@
       <list>
         <option value="ASClass" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -2003,18 +2009,20 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/regitration_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/track_times_dialog_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/SaveTrackTimeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/save_track_time_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="2111" />
+    <option name="y" value="152" />
+    <option name="width" value="1582" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -2056,8 +2064,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2104,7 +2110,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2116,28 +2123,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Runner" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2189,28 +2174,19 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
+              <option name="myItemId" value="entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Runner" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="device.picker.selection" value="0123456789ABCDEF" />
+    <property name="device.picker.selection" value="Pixel_API_26" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -2310,7 +2286,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517215451317" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518035948266" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2358,7 +2334,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517215451317" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518035948266" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2520,7 +2496,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517215451317" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518035948267" />
       </method>
     </configuration>
     <list size="1">
@@ -2624,10 +2600,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="2111" y="152" width="1582" height="808" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32925472" sideWeight="0.4936034" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.59754795" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3337041" sideWeight="0.46801707" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2521322" sideWeight="0.5055644" order="8" side_tool="true" content_ui="tabs" />
@@ -2635,21 +2611,20 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32369298" sideWeight="0.30703625" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814237" sideWeight="0.48720682" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.4914712" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814237" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32369298" sideWeight="0.6369936" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32369298" sideWeight="0.62366736" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38932148" sideWeight="0.32995737" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22734255" sideWeight="0.3326226" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3139659" sideWeight="0.4944356" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700394" sideWeight="0.4944356" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38932148" sideWeight="0.67004263" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38932148" sideWeight="0.6673774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2661,6 +2636,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814237" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2687,34 +2663,20 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java</url>
-          <line>120</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java</url>
+          <line>396</line>
           <properties />
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="84" />
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="85" />
+      <option name="time" value="92" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/GpsPosition.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/android/app/ActivityThread.java" />
     <entry file="jar://$USER_HOME$/.android/build-cache/8db8937b906e0832cc2823e30907ec0ca53639e6/output/jars/classes.jar!/com/google/android/gms/common/api/GoogleApiClient.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -2801,23 +2763,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_without_button_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_with_cancel_button_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/edittext_multiline_background.xml">
@@ -2863,35 +2815,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/entities/TrackTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/services/GpsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/marker_info_window_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/entities/Track.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="109" column="22" lean-forward="false" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -2944,53 +2874,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/login_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="32" column="49" lean-forward="false" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/save_track_activity.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/save_track_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-279">
           <caret line="98" column="53" lean-forward="false" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/save_track_activity.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/save_track_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-313">
           <caret line="109" column="57" lean-forward="false" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/regitration_layout.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/regitration_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
           <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/MarkerInfoWindow.java">
@@ -3005,51 +2935,30 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/SaveTrackActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/track_times_dialog_layout.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2431">
           <caret line="143" column="30" lean-forward="false" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
-          <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="100" lean-forward="false" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3057,28 +2966,81 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
           <caret line="55" column="63" lean-forward="false" selection-start-line="55" selection-start-column="63" selection-end-line="55" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/entities/Track.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/services/GpsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_with_cancel_button_layout.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/save_track_time_layout.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/SaveTrackTimeActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/SaveTrackActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="102" column="9" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="102" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/activities/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="319" column="32" lean-forward="false" selection-start-line="319" selection-start-column="32" selection-end-line="319" selection-end-column="32" />
+        <state relative-caret-position="2499">
+          <caret line="397" column="16" lean-forward="false" selection-start-line="397" selection-start-column="16" selection-end-line="397" selection-end-column="16" />
           <folding>
-            <element signature="class#4749:5195" expanded="false" />
+            <element signature="class#5006:5452" expanded="false" />
             <element signature="method#onMapReady#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#onCameraIdle#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#onMarkerClick#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#onInfoWindowClose#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#newTrack#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#stopTracking#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#cancelTracing#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#trackingButton#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#showFinish#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#navigateButton#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#trackTimesButton#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#startTrack#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#hideTrackButtons#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#hideMarkers#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#showHiddenMarkers#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#hideFinishMarker#0;class#MapsActivity#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#MapsActivity#0" expanded="false" />
@@ -3086,14 +3048,15 @@
             <element signature="class#CountDown#0;class#MapsActivity#0" expanded="false" />
             <element signature="class#TrackTimer#0;class#MapsActivity#0" expanded="false" />
             <element signature="class#UpdateTracksOnMap#0;class#MapsActivity#0" expanded="false" />
+            <element signature="class#GetTrackTimes#0;class#MapsActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/com/lukasz/runner/dialogs/InfoDialog.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lukasz/runner/entities/TrackTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+        <state relative-caret-position="39">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>

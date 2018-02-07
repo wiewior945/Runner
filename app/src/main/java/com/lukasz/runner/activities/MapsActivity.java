@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -60,7 +61,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private DrawerLayout drawerMenu;
     private LinearLayout menu;
     private Button newTrackButton, cancelTrackButton, endTruckTextButton;
-    private ImageView endTrackButton, centerMapButton, navigateButton, trackTimesButton,showFinishForTackButton;
+    private ImageView endTrackButton, centerMapButton, navigateButton, trackTimesButton,showFinishForTackButton, startTrackButton, cancelRunButton;
     private TextView timerTextView;
     private GpsService gpsService;
     private User user;
@@ -73,6 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean gpsFlag=false;      //czy LocationListener jest uruchomiony
     private boolean isFinishShowed=false;   //czy pokazywane jest marker z metą trasy
     private boolean downloadTracks=true;    //czy trasy mają być pobierane z serwera i wrzucane na mapę jako markery
+    private boolean isTrackRunning=false;
 
 
     @Override
@@ -90,6 +92,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         navigateButton=(ImageView) findViewById(R.id.navigateButton);
         trackTimesButton=(ImageView) findViewById(R.id.trackTimesButton);
         showFinishForTackButton=(ImageView) findViewById(R.id.showFinishForTrackButton);
+        startTrackButton=(ImageView) findViewById(R.id.startTrackButton);
+        cancelRunButton=(ImageView) findViewById(R.id.cancelRunButton);
 
         SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
@@ -158,7 +162,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // jeśli kliknięty zostanie marker mety nic sie nie dzieje
     @Override
     public boolean onMarkerClick(Marker marker) {
-        System.out.print("----------- "+marker.getTag());
         if(marker.getTag() == null){
             return true;
         }
@@ -178,6 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         navigateButton.setVisibility(View.GONE);
         trackTimesButton.setVisibility(View.GONE);
         showFinishForTackButton.setVisibility(View.GONE);
+        startTrackButton.setVisibility(View.GONE);
     }
 
     // obsługuje TextView z dialogu z czasami trasy
@@ -239,6 +243,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 else if(v.getId()==R.id.cancelDialogOkButton){  //OK
                     handler.removeCallbacks(trackTimer);
                     hideTrackButtons();
+                    downloadTracks = true;
+                    isTrackRunning = false;
+                    showHiddenMarkers();
+                    selectedMarker = null;
                     timerTextView.setText("00:00");
                     gpsService.cancelTrack();
                     drawerMenu.closeDrawer(Gravity.LEFT);
@@ -325,6 +333,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
     }
+
+    public void startTrack(View view){
+        startTrackButton.setVisibility(View.GONE);
+        navigateButton.setVisibility(View.GONE);
+        trackTimesButton.setVisibility(View.GONE);
+        showFinishForTackButton.setVisibility(View.GONE);
+        cancelRunButton.setVisibility(View.VISIBLE);
+        timerTextView.setVisibility(View.VISIBLE);
+        showFinish(null);
+        downloadTracks = false;
+        isTrackRunning = true;
+        hideMarkers(null);
+        handler.post(new CountDown());
+        gpsService.newTrack(user);
+    }
     //==================================================================================================================
 
     private void hideTrackButtons(){
@@ -338,7 +361,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // ukrywa wszystkie widoczne markery zostawiając tylko ten podany w parametrze, podając nulla ukrywa wszystkie
     private void hideMarkers(Marker marker){
-        Long markerId = ((Track)marker.getTag()).getId();
+        Long markerId = 0L;
+        if(marker!=null){
+            markerId = ((Track)marker.getTag()).getId();
+        }
         for(Marker m : currentlyVisibleMarkers){
             if(!markerId.equals(((Track)m.getTag()).getId())){
                 m.setVisible(false);
@@ -363,6 +389,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+
+    private void saveTrackTime(){
+        isTrackRunning = false;
+        downloadTracks = true;
+        handler.removeCallbacks(trackTimer);
+        TrackTime trackTime = gpsService.saveTrack();
+        if(trackTime!=null) {                        // jeśli jest nullem w GPS service wyświetlany jest komunikat o braku ruchu
+            trackTime.setTime(timerTextView.getText().toString());
+            trackTime.setTrack((Track)selectedMarker.getTag());
+        }
+        hideFinishMarker();
+        showHiddenMarkers();
+        cancelRunButton.setVisibility(View.GONE);
+        timerTextView.setVisibility(View.GONE);
+        timerTextView.setText("00:00");
+        String message = "Twój czas to: "+trackTime.getTime() + "\n" + "Czy chcesz zapisać trasę?";
+        InfoDialog.showCancelDialog(this, message,  new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v.getId()==(R.id.cancelDialogCancelButton)){ //CANCEL
+                    Dialog d = (Dialog) v.getTag();
+                    d.dismiss();
+                }
+                else if(v.getId()==R.id.cancelDialogOkButton){  //OK
+                    try{
+                        SaveTrackTime asyncTask = new SaveTrackTime();
+                        asyncTask.execute(trackTime);
+                        Boolean isCreated = asyncTask.get(15, TimeUnit.SECONDS);
+                    }catch(InterruptedException  | ExecutionException e){
+                        e.printStackTrace();
+                    }
+                    catch(TimeoutException e) {
+                        e.printStackTrace();
+                    }
+
+                    Dialog d = (Dialog) v.getTag();
+                    d.dismiss();
+                }
+            }
+        });
+    }
+
+
     /*
         Metoda do obsługi systemowego dialogu aktywującego GPS. If to wciśnięcie przycisku ok, else - anuluj.
      */
@@ -384,6 +453,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng coords = new LatLng(latitude, longtitude);
             CameraUpdate updatedLocation = CameraUpdateFactory.newLatLng(coords);
             map.animateCamera(updatedLocation);
+        }
+        if(selectedMarker!=null && !isTrackRunning){
+            float[] forDistance = new float[10];
+            Location.distanceBetween(latitude, longtitude, selectedMarker.getPosition().latitude, selectedMarker.getPosition().longitude, forDistance);
+            if(forDistance[0]<3) startTrackButton.setVisibility(View.VISIBLE);
+            else startTrackButton.setVisibility(View.GONE);
+        }
+        if(isTrackRunning){
+            float[] forDistance = new float[10];
+            Location.distanceBetween(latitude, longtitude, finishMarker.getPosition().latitude, finishMarker.getPosition().longitude, forDistance);
+            System.out.println("@@@ ---------- "+forDistance[0]);
+            if(forDistance[0]<3) {
+                saveTrackTime();
+            }
         }
     }
 
@@ -528,6 +611,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
             LinkedHashMap<String, String> map = restTemplate.getForObject(url, LinkedHashMap.class);
             return map;
+        }
+    }
+
+    private class SaveTrackTime extends AsyncTask<TrackTime, Void, Boolean>{
+
+        @Override
+        protected Boolean doInBackground(TrackTime... params) {
+            String timeTrackUrl = getString(R.string.server)+getString(R.string.ws_save_track_time);
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+            Boolean isSaved = restTemplate.postForObject(timeTrackUrl, params[0], Boolean.class);
+            return isSaved;
+            //TODO: wymazać trasę na baie jeśli zapis czasu się nie powiedzie
         }
     }
 }
